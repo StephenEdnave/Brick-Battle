@@ -72,7 +72,7 @@ _sections_unfolded = [ "Angle", "Color", "Emission Shape", "Flags", "Gravity", "
 [sub_resource type="RectangleShape2D" id=6]
 
 custom_solver_bias = 0.0
-extents = Vector2( 12.3034, 13.3096 )
+extents = Vector2( 9.62674, 9.61976 )
 
 [node name="Ball" type="RigidBody2D"]
 
@@ -96,7 +96,7 @@ linear_damp = 0.0
 angular_velocity = 0.0
 angular_damp = 0.0
 script = ExtResource( 1 )
-_sections_unfolded = [ "Angular", "Applied Forces", "Collision", "Linear", "Pause", "Transform" ]
+_sections_unfolded = [ "Angular", "Applied Forces", "Collision", "Linear", "Pause", "Transform", "Visibility" ]
 __meta__ = {
 "_edit_group_": true
 }
@@ -128,7 +128,7 @@ _sections_unfolded = [ "Drawing", "Material", "Process Material", "Time", "Trans
 
 [node name="Sprite" type="Sprite" parent="Pivot" index="0"]
 
-scale = Vector2( 0.2, 0.8 )
+scale = Vector2( 0.15, 0.6 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 

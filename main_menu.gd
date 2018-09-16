@@ -8,8 +8,4 @@ func _ready():
 
 
 func _on_StartButton_button_down():
-	var world = _world.instance()
-	get_parent().add_child(world)
-	Utils.world = world
-	world.new_game()
-	queue_free()
+	get_tree().change_scene("res://levels/World.tscn")

@@ -1,8 +1,6 @@
 extends Node2D
 
 signal level_win
-signal brick_spawned
-signal brick_death
 
 var brick_max = 0
 var brick_count = 0
@@ -19,7 +17,6 @@ func spawn_bricks():
 		new_brick.connect("brick_died", self, "brick_died")
 		brick_count += 1
 		brick_max += 1
-		emit_signal("brick_spawned")
 
 
 func brick_died(new_brick):
@@ -32,9 +29,7 @@ func brick_died(new_brick):
 		Utils.camera.shake(0.1, 20, 30)
 		
 		brick_count -= 1
-		
 		$BrickDestroySound.play()
-		
-		emit_signal("brick_death")
-#		if brick_count <= brick_max / 8:
-#			emit_signal("level_win")
+		if brick_count <= 0:
+			emit_signal("level_win")
+			queue_free()

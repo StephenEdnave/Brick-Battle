@@ -24,9 +24,8 @@ func _on_Ball_body_entered( body ):
 	if body.is_in_group("Player"):
 		Utils.screen_freeze(0.02)
 		Utils.camera.shake(0.06, 2, 10)
-		if (body.offset > 0 and global_position.x <= body.global_position.x) or (body.offset < 0 and global_position.x >= body.global_position.x):
-			var direction = global_position - Vector2(body.global_position.x + body.offset, body.global_position.y)
-			linear_velocity = direction.normalized() * new_speed
+		var direction = global_position - body.Offset.global_position
+		linear_velocity = direction.normalized() * new_speed
 	
 	$Particles2D.rotation_degrees = rad2deg(linear_velocity.angle())
 	$Sound.play()

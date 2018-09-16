@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://levels/world.gd" type="Script" id=1]
 [ext_resource path="res://Background.tscn" type="PackedScene" id=2]
@@ -17,12 +17,12 @@ extents = Vector2( 64, 512 )
 custom_solver_bias = 0.0
 extents = Vector2( 512, 64 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
 extents = Vector2( 32, 64 )
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
 extents = Vector2( 64, 32 )
@@ -43,32 +43,12 @@ use_filter = false
 font_data = ExtResource( 5 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Resource", "Settings" ]
 
-[sub_resource type="GDScript" id=9]
-
-script/source = "extends Area2D
-
-export(int) var player
-
-func _ready():
-	connect(\"area_entered\", self, \"_on_area_entered\")
-
-
-# Only object that should be entering is the ball
-func enter(object):
-	object.queue_free()
-	emit_signal(\"goal\", player)"
-
-[sub_resource type="RectangleShape2D" id=10]
-
-custom_solver_bias = 0.0
-extents = Vector2( 32, 224 )
-
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=7]
 
 custom_solver_bias = 0.0
 extents = Vector2( 32, 256 )
 
-[node name="World" type="Node2D" index="0"]
+[node name="World" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause", "Transform", "Z Index" ]
@@ -119,42 +99,42 @@ shape = SubResource( 2 )
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Bounds" index="4"]
 
 position = Vector2( -288, -448 )
-shape = SubResource( 7 )
+shape = SubResource( 3 )
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="Bounds" index="5"]
 
 position = Vector2( 288, -448 )
-shape = SubResource( 7 )
+shape = SubResource( 3 )
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="Bounds" index="6"]
 
 position = Vector2( 288, 448 )
-shape = SubResource( 7 )
+shape = SubResource( 3 )
 
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="Bounds" index="7"]
 
 position = Vector2( -288, 448 )
-shape = SubResource( 7 )
+shape = SubResource( 3 )
 
 [node name="CollisionShape2D9" type="CollisionShape2D" parent="Bounds" index="8"]
 
 position = Vector2( -448, 288 )
-shape = SubResource( 8 )
+shape = SubResource( 4 )
 
 [node name="CollisionShape2D10" type="CollisionShape2D" parent="Bounds" index="9"]
 
 position = Vector2( -448, -288 )
-shape = SubResource( 8 )
+shape = SubResource( 4 )
 
 [node name="CollisionShape2D11" type="CollisionShape2D" parent="Bounds" index="10"]
 
 position = Vector2( 448, -288 )
-shape = SubResource( 8 )
+shape = SubResource( 4 )
 
 [node name="CollisionShape2D12" type="CollisionShape2D" parent="Bounds" index="11"]
 
 position = Vector2( 448, 288 )
-shape = SubResource( 8 )
+shape = SubResource( 4 )
 
 [node name="Graphics" type="Node2D" parent="Bounds" index="12"]
 
@@ -526,25 +506,20 @@ player = 1
 
 editor/display_folded = true
 position = Vector2( -448, 0 )
-script = SubResource( 9 )
 player = 2
 
 [node name="CollisionShape2D" parent="Goals/Goal3" index="0"]
 
-position = Vector2( 0, -1.5 )
-scale = Vector2( 1, 1.13436 )
-shape = SubResource( 10 )
+shape = SubResource( 7 )
 
 [node name="Goal4" parent="Goals" index="3" instance=ExtResource( 6 )]
 
-editor/display_folded = true
 position = Vector2( 448, 0 )
-script = SubResource( 9 )
 player = 3
 
 [node name="CollisionShape2D" parent="Goals/Goal4" index="0"]
 
-shape = SubResource( 11 )
+shape = SubResource( 7 )
 
 [node name="StartPositions" type="Node2D" parent="." index="5"]
 

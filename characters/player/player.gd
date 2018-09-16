@@ -1,9 +1,8 @@
 extends "res://characters/character.gd"
 
-export (int) var offset = 10
-
 var originalPos
 var player = 0
+onready var Offset = $Offset
 
 func _ready():
 	originalPos = position
