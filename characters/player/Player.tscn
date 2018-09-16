@@ -66,7 +66,7 @@ step = 0.1
 custom_solver_bias = 0.0
 extents = Vector2( 15.5576, 3.2 )
 
-[node name="Player" type="KinematicBody2D" groups=[
+[node name="Player" type="KinematicBody2D" index="0" groups=[
 "Player",
 ]]
 
@@ -77,8 +77,8 @@ collision_mask = 22
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Pause", "Transform", "collision" ]
-MAX_WALK_SPEED = 1200
-MAX_RUN_SPEED = 1200
+MAX_WALK_SPEED = 600
+MAX_RUN_SPEED = 300
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
 

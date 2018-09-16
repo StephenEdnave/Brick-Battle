@@ -4,8 +4,8 @@ var input_direction = Vector2()
 var look_direction = Vector2(1, 0)
 var last_move_direction = Vector2(1, 0)
 
-export (int) var MAX_WALK_SPEED = 450
-export (int) var MAX_RUN_SPEED = 700
+export (int) var MAX_WALK_SPEED = 200
+export (int) var MAX_RUN_SPEED = 400
 
 var speed = 0
 var max_speed = 0
@@ -30,16 +30,23 @@ func _change_state(new_state):
 
 
 func _physics_process(delta):
+	get_input_direction()
 	update_direction()
 	
 	match state:
 		IDLE:
 			if input_direction:
 				_change_state(MOVE)
+				return
 		MOVE:
 			if not input_direction:
 				_change_state(IDLE)
+				return
 			move(delta)
+
+
+func get_input_direction():
+	pass
 
 
 func update_direction():
@@ -60,9 +67,10 @@ func move(delta):
 		speed = 0
 	
 	velocity = input_direction.normalized() * speed
-	position += velocity * delta
+	#position += velocity * delta
 	#position.y = clamp(position.y, -get_viewport_rect().size.y + 1000, get_viewport_rect().size.y - 150)
 	#move_and_slide(velocity, Vector2(), 5, 2)
+	move_and_collide(velocity * delta)
 	
-	var slide_count = get_slide_count()
-	return get_slide_collision(slide_count - 1) if slide_count else null
+	#var slide_count = get_slide_count()
+	#return get_slide_collision(slide_count - 1) if slide_count else null

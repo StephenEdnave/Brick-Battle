@@ -7,7 +7,8 @@ onready var Offset = $Offset
 func _ready():
 	originalPos = position
 
-func _physics_process(delta):
+
+func get_input_direction():
 	input_direction = Vector2()
 	var right
 	var left

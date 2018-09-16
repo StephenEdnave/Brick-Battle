@@ -48,7 +48,6 @@ func new_level():
 	
 	var new_level = load(levels[current_level]).instance()
 	new_level.connect("level_win", self, "level_win")
-	print("a")
 	new_level.spawn_bricks()
 	add_child(new_level)
 	
