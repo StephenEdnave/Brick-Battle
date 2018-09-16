@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://factories/object_factory.gd" type="Script" id=1]
+[ext_resource path="res://objects/1Up.tscn" type="PackedScene" id=2]
+[ext_resource path="res://objects/MoneyDrop.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/Ball.tscn" type="PackedScene" id=4]
+
+[node name="ObjectFactory" type="Node" index="0"]
+
+script = ExtResource( 1 )
+objects = [ NodePath("1Up"), NodePath("MoneyDrop"), NodePath("Ball") ]
+
+[node name="1Up" parent="." index="0" instance=ExtResource( 2 )]
+
+[node name="MoneyDrop" parent="." index="1" instance=ExtResource( 3 )]
+
+[node name="Ball" parent="." index="2" instance=ExtResource( 4 )]
+
+position = Vector2( 1.73195, -3.52815 )
+
+

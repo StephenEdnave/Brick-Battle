@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/GLOW.ogg-91c55d77b9a9f96c604701421a4ed4ed.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/music/GLOW.ogg"
+dest_files=[ "res://.import/GLOW.ogg-91c55d77b9a9f96c604701421a4ed4ed.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

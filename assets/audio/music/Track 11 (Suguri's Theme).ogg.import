@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Track 11 (Suguri's Theme).ogg-8c889b32e4bb191628e633587d68b7bb.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/music/Track 11 (Suguri's Theme).ogg"
+dest_files=[ "res://.import/Track 11 (Suguri's Theme).ogg-8c889b32e4bb191628e633587d68b7bb.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

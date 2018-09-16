@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Track 8 (QP's Theme).ogg-ed0e0dc060bee8191ba0c69a8c38bfb7.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/music/Track 8 (QP's Theme).ogg"
+dest_files=[ "res://.import/Track 8 (QP's Theme).ogg-ed0e0dc060bee8191ba0c69a8c38bfb7.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

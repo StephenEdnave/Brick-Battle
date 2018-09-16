@@ -1,0 +1,174 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://utils.gd" type="Script" id=1]
+[ext_resource path="res://assets/audio/music/Track 8 (QP's Theme).ogg" type="AudioStream" id=2]
+[ext_resource path="res://assets/audio/music/Track 9 (Yuki's Theme).ogg" type="AudioStream" id=3]
+[ext_resource path="res://assets/audio/music/Track 11 (Suguri's Theme).ogg" type="AudioStream" id=4]
+[ext_resource path="res://assets/audio/music/Track 12 (Hime's Theme).ogg" type="AudioStream" id=5]
+[ext_resource path="res://assets/audio/music/Track 35 (Sweet Breaker's Theme).ogg" type="AudioStream" id=6]
+[ext_resource path="res://assets/audio/music/Track 42 (Scramble Aru's Theme).ogg" type="AudioStream" id=7]
+[ext_resource path="res://assets/audio/music/Track 44 (Tomato+Mimyuu's Theme).ogg" type="AudioStream" id=8]
+[ext_resource path="res://assets/audio/music/Track 52 (Suguri (Ver.2)'s Theme).ogg" type="AudioStream" id=9]
+[ext_resource path="res://assets/audio/music/Track 31 (Sham's Theme).ogg" type="AudioStream" id=10]
+[ext_resource path="res://assets/audio/music/Track 17 (Kai's Theme).ogg" type="AudioStream" id=11]
+[ext_resource path="res://assets/audio/music/Track 18 (Marie Poppo's Theme).ogg" type="AudioStream" id=12]
+[ext_resource path="res://assets/audio/music/Track 19 (Tomomo's Theme).ogg" type="AudioStream" id=13]
+[ext_resource path="res://assets/audio/music/Track 22 (Syura's Theme).ogg" type="AudioStream" id=14]
+[ext_resource path="res://assets/audio/music/Track 24 (Saki's Theme).ogg" type="AudioStream" id=15]
+[ext_resource path="res://assets/audio/music/Track 25 (Kyousuke's Theme).ogg" type="AudioStream" id=16]
+[ext_resource path="res://assets/audio/music/Track 26 (Krila's Theme).ogg" type="AudioStream" id=17]
+
+[node name="Utils" type="Node"]
+
+pause_mode = 2
+script = ExtResource( 1 )
+_sections_unfolded = [ "Pause" ]
+music = [ null, null, null ]
+
+[node name="Music" type="Node" parent="." index="0"]
+
+[node name="QP" type="AudioStreamPlayer" parent="Music" index="0"]
+
+stream = ExtResource( 2 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Yuki" type="AudioStreamPlayer" parent="Music" index="1"]
+
+stream = ExtResource( 3 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Suguri" type="AudioStreamPlayer" parent="Music" index="2"]
+
+stream = ExtResource( 4 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Hime" type="AudioStreamPlayer" parent="Music" index="3"]
+
+stream = ExtResource( 5 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="SweetBreaker" type="AudioStreamPlayer" parent="Music" index="4"]
+
+stream = ExtResource( 6 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="ScrambleAru" type="AudioStreamPlayer" parent="Music" index="5"]
+
+stream = ExtResource( 7 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="TomatoMimyuu" type="AudioStreamPlayer" parent="Music" index="6"]
+
+stream = ExtResource( 8 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Suguri2" type="AudioStreamPlayer" parent="Music" index="7"]
+
+stream = ExtResource( 9 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Sham" type="AudioStreamPlayer" parent="Music" index="8"]
+
+stream = ExtResource( 10 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Kai" type="AudioStreamPlayer" parent="Music" index="9"]
+
+stream = ExtResource( 11 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="MariePoppo" type="AudioStreamPlayer" parent="Music" index="10"]
+
+stream = ExtResource( 12 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Tomomo" type="AudioStreamPlayer" parent="Music" index="11"]
+
+stream = ExtResource( 13 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Syura" type="AudioStreamPlayer" parent="Music" index="12"]
+
+stream = ExtResource( 14 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Saki" type="AudioStreamPlayer" parent="Music" index="13"]
+
+stream = ExtResource( 15 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Kyousuke" type="AudioStreamPlayer" parent="Music" index="14"]
+
+stream = ExtResource( 16 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Krila" type="AudioStreamPlayer" parent="Music" index="15"]
+
+stream = ExtResource( 17 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+

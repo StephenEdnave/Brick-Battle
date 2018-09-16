@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Track 35 (Sweet Breaker's Theme).ogg-663cc47620b396936f5101a5bda47f03.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/music/Track 35 (Sweet Breaker's Theme).ogg"
+dest_files=[ "res://.import/Track 35 (Sweet Breaker's Theme).ogg-663cc47620b396936f5101a5bda47f03.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
