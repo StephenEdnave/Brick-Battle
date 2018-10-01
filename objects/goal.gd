@@ -10,5 +10,6 @@ func _ready():
 
 # Only object that should be entering is the ball
 func _on_body_entered(object):
-	object.queue_free()
+	if object.has_method("goal"):
+		object.goal()
 	emit_signal("goal", player)

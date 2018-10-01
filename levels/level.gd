@@ -21,12 +21,12 @@ func spawn_bricks():
 
 func brick_died(new_brick):
 	if new_brick != null:
-		Utils.screen_freeze(0.03)
-		Utils.camera.shake(0.1, 4, 10)
+		Utils.screen_freeze(0.004)
+		Utils.camera.shake(0.2, 12, 4)
 		new_brick.connect("brick_died", self, "brick_died")
 	else: # Brick died
-		Utils.screen_freeze(0.06)
-		Utils.camera.shake(0.1, 20, 30)
+		Utils.screen_freeze(0.02)
+		Utils.camera.shake(0.4, 12, 8)
 		
 		brick_count -= 1
 		$BrickDestroySound.play()

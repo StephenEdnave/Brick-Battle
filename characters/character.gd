@@ -67,10 +67,7 @@ func move(delta):
 		speed = 0
 	
 	velocity = input_direction.normalized() * speed
+	move_and_slide(velocity, Vector2(), 5, 2)
 	#position += velocity * delta
-	#position.y = clamp(position.y, -get_viewport_rect().size.y + 1000, get_viewport_rect().size.y - 150)
-	#move_and_slide(velocity, Vector2(), 5, 2)
-	move_and_collide(velocity * delta)
-	
-	#var slide_count = get_slide_count()
-	#return get_slide_collision(slide_count - 1) if slide_count else null
+	var slide_count = get_slide_count()
+	return get_slide_collision(slide_count - 1) if slide_count else null

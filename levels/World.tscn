@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://levels/world.gd" type="Script" id=1]
 [ext_resource path="res://Background.tscn" type="PackedScene" id=2]
@@ -17,16 +17,6 @@ extents = Vector2( 64, 512 )
 custom_solver_bias = 0.0
 extents = Vector2( 512, 64 )
 
-[sub_resource type="RectangleShape2D" id=3]
-
-custom_solver_bias = 0.0
-extents = Vector2( 32, 64 )
-
-[sub_resource type="RectangleShape2D" id=4]
-
-custom_solver_bias = 0.0
-extents = Vector2( 64, 32 )
-
 [sub_resource type="DynamicFont" id=5]
 
 size = 64
@@ -43,11 +33,6 @@ use_filter = false
 font_data = ExtResource( 5 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Resource", "Settings" ]
 
-[sub_resource type="RectangleShape2D" id=7]
-
-custom_solver_bias = 0.0
-extents = Vector2( 32, 256 )
-
 [node name="World" type="Node2D"]
 
 script = ExtResource( 1 )
@@ -60,7 +45,6 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Bounds" type="StaticBody2D" parent="." index="1"]
 
-editor/display_folded = true
 input_pickable = false
 collision_layer = 16
 collision_mask = 3
@@ -93,50 +77,40 @@ shape = SubResource( 2 )
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Bounds" index="3"]
 
-position = Vector2( 0, 576 )
+position = Vector2( 0, 577 )
 shape = SubResource( 2 )
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="Bounds" index="4"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bounds" index="4"]
 
-position = Vector2( -288, -448 )
-shape = SubResource( 3 )
+position = Vector2( -512, -352 )
+build_mode = 0
+polygon = PoolVector2Array( 0, 96, 0, -160, 256, -160, 256, -32, 128, 96 )
 
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="Bounds" index="5"]
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Bounds" index="5"]
 
-position = Vector2( 288, -448 )
-shape = SubResource( 3 )
+position = Vector2( 352, -513.744 )
+rotation = 1.5708
+build_mode = 0
+polygon = PoolVector2Array( 0, 96, 0, -160, 256, -160, 256, -32, 128, 96 )
+_sections_unfolded = [ "Transform" ]
 
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="Bounds" index="6"]
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Bounds" index="6"]
 
-position = Vector2( 288, 448 )
-shape = SubResource( 3 )
+position = Vector2( 510.923, 352.709 )
+rotation = 3.14159
+build_mode = 0
+polygon = PoolVector2Array( 0, 96, 0, -160, 256, -160, 256, -32, 128, 96 )
+_sections_unfolded = [ "Transform" ]
 
-[node name="CollisionShape2D8" type="CollisionShape2D" parent="Bounds" index="7"]
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Bounds" index="7"]
 
-position = Vector2( -288, 448 )
-shape = SubResource( 3 )
+position = Vector2( -354.15, 512 )
+rotation = 4.71239
+build_mode = 0
+polygon = PoolVector2Array( 0, 96, 0, -160, 256, -160, 256, -32, 128, 96 )
+_sections_unfolded = [ "Transform" ]
 
-[node name="CollisionShape2D9" type="CollisionShape2D" parent="Bounds" index="8"]
-
-position = Vector2( -448, 288 )
-shape = SubResource( 4 )
-
-[node name="CollisionShape2D10" type="CollisionShape2D" parent="Bounds" index="9"]
-
-position = Vector2( -448, -288 )
-shape = SubResource( 4 )
-
-[node name="CollisionShape2D11" type="CollisionShape2D" parent="Bounds" index="10"]
-
-position = Vector2( 448, -288 )
-shape = SubResource( 4 )
-
-[node name="CollisionShape2D12" type="CollisionShape2D" parent="Bounds" index="11"]
-
-position = Vector2( 448, 288 )
-shape = SubResource( 4 )
-
-[node name="Graphics" type="Node2D" parent="Bounds" index="12"]
+[node name="Graphics" type="Node2D" parent="Bounds" index="8"]
 
 editor/display_folded = true
 
@@ -176,37 +150,69 @@ position = Vector2( 288, -448 )
 scale = Vector2( 0.5, 4 )
 texture = ExtResource( 3 )
 
-[node name="Sprite7" type="Sprite" parent="Bounds/Graphics" index="6"]
+[node name="Sprite13" type="Sprite" parent="Bounds/Graphics" index="6"]
+
+position = Vector2( -447.24, -446.799 )
+rotation = 0.785398
+scale = Vector2( 2.80786, 5.71106 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite14" type="Sprite" parent="Bounds/Graphics" index="7"]
+
+position = Vector2( 446.929, 447.343 )
+rotation = 0.785398
+scale = Vector2( 2.80786, 5.71106 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite15" type="Sprite" parent="Bounds/Graphics" index="8"]
+
+position = Vector2( -447.671, 447.973 )
+rotation = -0.785398
+scale = Vector2( 2.80786, 5.71106 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite16" type="Sprite" parent="Bounds/Graphics" index="9"]
+
+position = Vector2( 448.419, -446.275 )
+rotation = -0.785398
+scale = Vector2( 2.80786, 5.71106 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite7" type="Sprite" parent="Bounds/Graphics" index="10"]
 
 position = Vector2( 288, 448 )
 scale = Vector2( 0.5, 4 )
 texture = ExtResource( 3 )
 
-[node name="Sprite8" type="Sprite" parent="Bounds/Graphics" index="7"]
+[node name="Sprite8" type="Sprite" parent="Bounds/Graphics" index="11"]
 
 position = Vector2( -288, 448 )
 scale = Vector2( 0.5, 4 )
 texture = ExtResource( 3 )
 
-[node name="Sprite9" type="Sprite" parent="Bounds/Graphics" index="8"]
+[node name="Sprite9" type="Sprite" parent="Bounds/Graphics" index="12"]
 
 position = Vector2( -448, -288 )
 scale = Vector2( 1, 2 )
 texture = ExtResource( 3 )
 
-[node name="Sprite10" type="Sprite" parent="Bounds/Graphics" index="9"]
+[node name="Sprite10" type="Sprite" parent="Bounds/Graphics" index="13"]
 
 position = Vector2( -448, 288 )
 scale = Vector2( 1, 2 )
 texture = ExtResource( 3 )
 
-[node name="Sprite11" type="Sprite" parent="Bounds/Graphics" index="10"]
+[node name="Sprite11" type="Sprite" parent="Bounds/Graphics" index="14"]
 
 position = Vector2( 448, 288 )
 scale = Vector2( 1, 2 )
 texture = ExtResource( 3 )
 
-[node name="Sprite12" type="Sprite" parent="Bounds/Graphics" index="11"]
+[node name="Sprite12" type="Sprite" parent="Bounds/Graphics" index="15"]
 
 position = Vector2( 448, -288 )
 scale = Vector2( 1, 2 )
@@ -505,21 +511,18 @@ player = 1
 [node name="Goal3" parent="Goals" index="2" instance=ExtResource( 6 )]
 
 editor/display_folded = true
-position = Vector2( -448, 0 )
+position = Vector2( -448.519, 1.57028 )
+rotation = 1.5708
+_sections_unfolded = [ "Collision", "Transform" ]
 player = 2
-
-[node name="CollisionShape2D" parent="Goals/Goal3" index="0"]
-
-shape = SubResource( 7 )
 
 [node name="Goal4" parent="Goals" index="3" instance=ExtResource( 6 )]
 
-position = Vector2( 448, 0 )
+editor/display_folded = true
+position = Vector2( 444.78, 1.57028 )
+rotation = 1.5708
+_sections_unfolded = [ "Collision", "Transform" ]
 player = 3
-
-[node name="CollisionShape2D" parent="Goals/Goal4" index="0"]
-
-shape = SubResource( 7 )
 
 [node name="StartPositions" type="Node2D" parent="." index="5"]
 
@@ -533,13 +536,13 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Position2" type="Position2D" parent="StartPositions" index="1"]
 
-position = Vector2( 0, -384 )
+position = Vector2( 0.000973701, -384 )
 rotation = 3.14159
 _sections_unfolded = [ "Transform" ]
 
 [node name="Position3" type="Position2D" parent="StartPositions" index="2"]
 
-position = Vector2( -382, 0 )
+position = Vector2( -384.014, 0 )
 rotation = 1.5708
 _sections_unfolded = [ "Transform" ]
 
