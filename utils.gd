@@ -53,5 +53,5 @@ func screen_freeze(duration):
 
 func _on_Music_finished():
 	randomize()
-	var random = randi() % get_child_count()
+	var random = randi() % $Music.get_child_count()
 	$Music.get_child(random).play()

@@ -12,7 +12,7 @@ func _ready():
 	pass
 
 
-func _process(delta):
+func _physics_process(delta):
 	$Pivot/Trail.global_position = Vector2()
 	$Pivot/Trail.global_rotation = 0
 	var point = global_position

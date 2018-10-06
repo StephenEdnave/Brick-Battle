@@ -17,7 +17,7 @@ export (Array, String) var levels = Array()
 var current_level = 0
 
 func _ready():
-	OS.set_window_fullscreen(true)
+	#OS.set_window_fullscreen(true)
 	Utils.camera = $Camera
 	$StartCountdownTimer.connect("timeout", self, "_on_StartCountdownTimer_timeout")
 	$GameOverTimer.connect("timeout", self, "_on_GameOverTimer_timeout")
