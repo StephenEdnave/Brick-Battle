@@ -11,24 +11,20 @@ objects = [ NodePath("Brick0"), NodePath("Brick1"), NodePath("Brick2") ]
 [node name="Brick0" parent="." index="0" instance=ExtResource( 2 )]
 
 modulate = Color( 1, 0, 0, 1 )
-position = Vector2( 97.4034, 43.5169 )
-scale = Vector2( 0.8, 0.8 )
-_sections_unfolded = [ "Visibility" ]
+_sections_unfolded = [ "Collision", "Transform", "Visibility" ]
 
 [node name="Brick1" parent="." index="1" instance=ExtResource( 2 )]
 
 modulate = Color( 1, 0.984375, 0, 1 )
-position = Vector2( 100.91, 145.603 )
-scale = Vector2( 0.8, 0.8 )
-_sections_unfolded = [ "Visibility" ]
+position = Vector2( 0, 32 )
+_sections_unfolded = [ "Collision", "Transform", "Visibility" ]
 next_brick = 0
 
 [node name="Brick2" parent="." index="2" instance=ExtResource( 2 )]
 
 modulate = Color( 0, 1, 0.015625, 1 )
-position = Vector2( 99.2714, 221.21 )
-scale = Vector2( 0.8, 0.8 )
-_sections_unfolded = [ "Visibility" ]
+position = Vector2( 0, 64 )
+_sections_unfolded = [ "Collision", "Transform", "Visibility" ]
 next_brick = 1
 
 

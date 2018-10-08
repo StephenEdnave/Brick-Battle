@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 64.3647, 16.6448 )
+extents = Vector2( 32, 7.97528 )
 
 [node name="Brick" type="StaticBody2D" groups=[
 "Bricks",
@@ -32,13 +32,14 @@ _sections_unfolded = [ "Transform" ]
 
 visible = false
 modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 0.294928, 0.322087 )
-scale = Vector2( 1.07208, 1.29319 )
+position = Vector2( 0.119562, 0 )
+scale = Vector2( 0.538667, 0.65666 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Sprite" type="Sprite" parent="Pivot" index="1"]
 
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 

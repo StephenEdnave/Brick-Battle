@@ -9,14 +9,15 @@ var brick_count = 0
 func spawn_bricks():
 	brick_count = 0
 	brick_max = 0
-	for brick in $BrickPositions.get_children():
-		# Get rid of currently existing bricks
-		for spawned_brick in brick.get_children():
-			spawned_brick.queue_free()
-		var new_brick = brick.spawn_brick()
-		new_brick.connect("brick_died", self, "brick_died")
-		brick_count += 1
-		brick_max += 1
+	for group in $BrickPositions.get_children():
+		for brick in group.get_children():
+			# Get rid of currently existing bricks
+			for spawned_brick in brick.get_children():
+				spawned_brick.queue_free()
+			var new_brick = brick.spawn_brick()
+			new_brick.connect("brick_died", self, "brick_died")
+			brick_count += 1
+			brick_max += 1
 
 
 func brick_died(new_brick):

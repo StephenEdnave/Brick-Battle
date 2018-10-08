@@ -1,22 +1,22 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://objects/ball.gd" type="Script" id=1]
-[ext_resource path="res://objects/ball.png" type="Texture" id=2]
-[ext_resource path="res://objects/brick_white.png" type="Texture" id=3]
+[ext_resource path="res://objects/brick_white.png" type="Texture" id=2]
+[ext_resource path="res://objects/ball.png" type="Texture" id=3]
 [ext_resource path="res://assets/audio/Block_Destroy.wav" type="AudioStream" id=4]
 
-[sub_resource type="Gradient" id=6]
+[sub_resource type="Gradient" id=1]
 
 offsets = PoolRealArray( 0, 0.0532544, 0.100592, 0.136095, 0.988166 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 0, 0, 0.946108, 1, 1, 1, 0.898204, 1, 1, 1, 0.862275, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=7]
+[sub_resource type="GradientTexture" id=2]
 
 flags = 4
-gradient = SubResource( 6 )
+gradient = SubResource( 1 )
 width = 2048
 
-[sub_resource type="ParticlesMaterial" id=8]
+[sub_resource type="ParticlesMaterial" id=3]
 
 render_priority = 0
 trail_divisor = 1
@@ -45,7 +45,7 @@ angle = 0.0
 angle_random = 0.0
 scale = 10.0
 scale_random = 0.0
-color_ramp = SubResource( 7 )
+color_ramp = SubResource( 2 )
 hue_variation = 0.0
 hue_variation_random = 0.0
 anim_speed = 0.0
@@ -55,12 +55,63 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Angular Velocity", "Color", "Gravity", "Initial Velocity", "Scale" ]
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="Gradient" id=5]
+
+offsets = PoolRealArray( 0, 0.0591716, 0.254438, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 0, 0, 0.928994, 1, 0.925781, 0.925781, 0.882252, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=6]
+
+flags = 4
+gradient = SubResource( 5 )
+width = 2048
+
+[sub_resource type="ParticlesMaterial" id=7]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 2
+emission_box_extents = Vector3( 16, 16, 1 )
+flag_align_y = false
+flag_rotate_y = true
+flag_disable_z = true
+spread = 3.0
+flatness = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 100.0
+initial_velocity_random = 0.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 0.1
+scale_random = 0.0
+color_ramp = SubResource( 6 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Damping" ]
+
+[sub_resource type="CircleShape2D" id=8]
 
 custom_solver_bias = 0.0
-extents = Vector2( 9.62674, 9.61976 )
+radius = 10.0
 
-[node name="Ball" type="RigidBody2D"]
+[node name="Ball" type="RigidBody2D" index="0"]
 
 position = Vector2( -1.28273, -0.513468 )
 input_pickable = false
@@ -89,7 +140,25 @@ __meta__ = {
 acceleration = 50
 trail_length = 30
 
-[node name="ExplodeParticles" type="Particles2D" parent="." index="0"]
+[node name="Pivot" type="Position2D" parent="." index="0"]
+
+[node name="Trail" type="Line2D" parent="Pivot" index="0"]
+
+points = PoolVector2Array(  )
+width = 10.0
+default_color = Color( 0.4, 0.5, 1, 1 )
+texture_mode = 655463
+sharp_limit = 2.0
+round_precision = 8
+_sections_unfolded = [ "Border", "Capping", "Fill" ]
+
+[node name="Sprite" type="Sprite" parent="Pivot" index="1"]
+
+scale = Vector2( 0.15, 0.6 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Material", "Transform", "Visibility" ]
+
+[node name="ExplodeParticles" type="Particles2D" parent="." index="1"]
 
 emitting = false
 amount = 50
@@ -104,39 +173,42 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
-process_material = SubResource( 8 )
-texture = ExtResource( 2 )
+process_material = SubResource( 3 )
+texture = ExtResource( 3 )
 normal_map = null
 h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Drawing", "Material", "Process Material", "Textures", "Time", "Transform" ]
 
-[node name="Pivot" type="Position2D" parent="." index="1"]
+[node name="MaxSpeedParticles" type="Particles2D" parent="." index="2"]
 
-editor/display_folded = true
+rotation = 3.14159
+emitting = true
+amount = 32
+lifetime = 1.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 7 )
+texture = ExtResource( 2 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Drawing" ]
 
-[node name="Sprite" type="Sprite" parent="Pivot" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
 
-scale = Vector2( 0.15, 0.6 )
-texture = ExtResource( 3 )
-_sections_unfolded = [ "Material", "Transform", "Visibility" ]
-
-[node name="Trail" type="Line2D" parent="Pivot" index="1"]
-
-points = PoolVector2Array(  )
-width = 10.0
-default_color = Color( 0.4, 0.5, 1, 1 )
-texture_mode = 655463
-sharp_limit = 2.0
-round_precision = 8
-_sections_unfolded = [ "Border", "Capping", "Fill" ]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
-
-shape = SubResource( 9 )
+shape = SubResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Sound" type="AudioStreamPlayer2D" parent="." index="3"]
+[node name="Sound" type="AudioStreamPlayer2D" parent="." index="4"]
 
 stream = ExtResource( 4 )
 volume_db = -6.0
@@ -146,13 +218,6 @@ max_distance = 2000.0
 attenuation = 1.0
 bus = "SFX"
 area_mask = 1
-
-[node name="Timer" type="Timer" parent="." index="4"]
-
-process_mode = 1
-wait_time = 1.0
-one_shot = false
-autostart = false
 
 [node name="GoalSFX" type="AudioStreamPlayer2D" parent="." index="5"]
 
@@ -164,6 +229,13 @@ max_distance = 2000.0
 attenuation = 1.0
 bus = "SFX"
 area_mask = 1
+
+[node name="Timer" type="Timer" parent="." index="6"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
 
 [connection signal="body_entered" from="." to="." method="_on_Ball_body_entered"]
 

@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 256, 32 )
+extents = Vector2( 256, 60 )
 
 [node name="Goal" type="Area2D"]
 
@@ -30,7 +30,7 @@ shape = SubResource( 1 )
 [node name="Sprite" type="Sprite" parent="." index="1"]
 
 modulate = Color( 1, 0, 0, 0.149137 )
-scale = Vector2( 3.99108, 1.95183 )
+scale = Vector2( 3.99108, 3.75 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Visibility" ]
 

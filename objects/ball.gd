@@ -2,17 +2,23 @@ extends RigidBody2D
 
 signal ball_died
 
+var direction = Vector2()
+var speed = 300
 export (int) var acceleration = 50
 onready var _collision_particle = preload("res://objects/CollisionParticle.tscn")
 
-const MAX_SPEED = 1337
+const MAX_SPEED = 600
 export (int) var trail_length = 30
 
+onready var MaxSpeedParticles = $MaxSpeedParticles
+
 func _ready():
-	pass
+	MaxSpeedParticles.emitting = false
 
 
 func _physics_process(delta):
+	direction = linear_velocity.normalized()
+	rotation_degrees = rad2deg(linear_velocity.angle())
 	$Pivot/Trail.global_position = Vector2()
 	$Pivot/Trail.global_rotation = 0
 	var point = global_position
@@ -22,34 +28,42 @@ func _physics_process(delta):
 
 
 func _on_Ball_body_entered( body ):
-	var new_speed = _accelerate()
+	var new_direction = Vector2()
 	
 	if body.is_in_group("Bricks"):
 		damage_brick(body)
-		linear_velocity = linear_velocity.normalized() * new_speed
+		if speed >= MAX_SPEED:
+			if body.next_brick == -1:
+				new_direction = direction
 	
 	if body.is_in_group("Player"):
 		Utils.screen_freeze(0.008)
 		Utils.camera.shake(0.4, 24, 4)
-		var direction = global_position - body.Offset.global_position
-		linear_velocity = direction.normalized() * new_speed
+		new_direction = (global_position - body.Offset.global_position).normalized()
+	
+	speed = _accelerate()
+	if speed >= MAX_SPEED:
+		MaxSpeedParticles.emitting = true
+	
+	# Linear velocity is set like this to prevent balls from losing speed
+	direction = new_direction
+	if direction:
+		linear_velocity = direction
+	linear_velocity = linear_velocity.normalized() * speed
+	
+	$Pivot/Trail.global_position = Vector2()
+	$Pivot/Trail.global_rotation = 0
 	
 	$Sound.play()
 
 
 func _accelerate():
-	var speed = linear_velocity.length()
 	var new_speed = min(speed + acceleration, MAX_SPEED)
 	return new_speed
 
 
-func damage_brick(body):
-	body.damage(1)
-	
-	var speed = linear_velocity.length()
-	
-	var direction = position - body.global_position
-	var velocity = direction.normalized() * min(speed + acceleration, MAX_SPEED)
+func damage_brick(brick):
+	brick.damage(1)
 	
 	# Spawn collision particle
 	var collision_particle = _collision_particle.instance()
@@ -57,7 +71,7 @@ func damage_brick(body):
 	collision_particle.position = position
 	collision_particle.restart()
 	get_parent().add_child(collision_particle)
-	if body.next_brick == -1:
+	if brick.next_brick == -1:
 		collision_particle.scale = Vector2(6, 6)
 
 

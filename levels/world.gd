@@ -13,7 +13,6 @@ var start_countdown = 3
 
 var balls = 0
 
-export (Array, String) var levels = Array()
 var current_level = 0
 
 func _ready():
@@ -23,6 +22,9 @@ func _ready():
 	$GameOverTimer.connect("timeout", self, "_on_GameOverTimer_timeout")
 	$BallRespawnTimer.connect("timeout", self, "_on_BallRespawnTimer_timeout")
 	$NextLevelTimer.connect("timeout", self, "_on_NextLevelTimer_timeout")
+	
+	for level in $Levels.get_children():
+		level.connect("level_win", self, "level_win")
 	
 	for i in range(num_players):
 		$Goals.get_child(i).connect("goal", self, "goal")
@@ -43,13 +45,8 @@ func new_game():
 
 
 func new_level():
-	if current_level == levels.size():
-		current_level = 0
-	
-	var new_level = load(levels[current_level]).instance()
-	new_level.connect("level_win", self, "level_win")
+	var new_level = $Levels.get_child(current_level)
 	new_level.spawn_bricks()
-	add_child(new_level)
 	
 	$Background/Background.modulate.r = (sin((current_level * 30) * (PI / 180) + 0) * 30 + 100) / 255
 	$Background/Background.modulate.g = (sin((current_level * 30) * (PI / 180) + 2) * 30 + 80) / 255
@@ -87,7 +84,8 @@ func spawn_ball(index):
 	# Spawn ball
 	var ball = _ball.instance()
 	ball.position = $BallSpawnPositions.get_child(index).position
-	ball.linear_velocity = -ball.position # Assumes the game is centered around Vector2(0, 0)
+	ball.direction = -ball.position.normalized() # Assumes the game is centered around Vector2(0, 0)
+	ball.linear_velocity = ball.direction * ball.speed
 	add_child(ball)
 	balls += 1
 
@@ -133,5 +131,7 @@ func level_win():
 
 
 func _on_NextLevelTimer_timeout():
-	current_level = current_level + 1
+	current_level += 1
+	if current_level >= $Levels.get_child_count():
+		current_level = 0
 	new_level()
