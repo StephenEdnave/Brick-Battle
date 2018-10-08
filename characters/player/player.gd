@@ -25,11 +25,11 @@ func get_input_direction():
 		right = int(Input.is_key_pressed(KEY_RIGHT))
 		left = int(Input.is_key_pressed(KEY_LEFT))
 	elif player == 1:
-		right = int(Input.is_key_pressed(KEY_RIGHT))
-		left = int(Input.is_key_pressed(KEY_LEFT))
+		right = int(Input.is_key_pressed(KEY_D))
+		left = int(Input.is_key_pressed(KEY_A))
 	elif player == 2:
-		up = int(Input.is_key_pressed(KEY_UP))
-		down = int(Input.is_key_pressed(KEY_DOWN))
+		up = int(Input.is_key_pressed(KEY_W))
+		down = int(Input.is_key_pressed(KEY_S))
 	elif player == 3:
 		up = int(Input.is_key_pressed(KEY_UP))
 		down = int(Input.is_key_pressed(KEY_DOWN))

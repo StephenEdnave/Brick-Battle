@@ -78,6 +78,7 @@ func damage_brick(brick):
 func goal():
 	Utils.screen_freeze(0.05)
 	Utils.camera.shake(0.8, 42, 24)
+	MaxSpeedParticles.emitting = false
 	$ExplodeParticles.emitting = true
 	$CollisionShape2D.disabled = true
 	$Pivot.visible = false
