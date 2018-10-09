@@ -12,7 +12,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 32, 512 )
+extents = Vector2( 280.976, 512 )
 
 [sub_resource type="RectangleShape2D" id=2]
 
@@ -46,6 +46,8 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Goals" type="Node2D" parent="." index="1"]
 
+editor/display_folded = true
+
 [node name="Goal1" parent="Goals" index="0" instance=ExtResource( 3 )]
 
 editor/display_folded = true
@@ -54,6 +56,7 @@ scale = Vector2( 2, 1.1875 )
 
 [node name="Goal2" parent="Goals" index="1" instance=ExtResource( 3 )]
 
+visible = false
 position = Vector2( 0, -574.422 )
 scale = Vector2( 2, 1.04151 )
 player = 1
@@ -61,6 +64,7 @@ player = 1
 [node name="Goal3" parent="Goals" index="2" instance=ExtResource( 3 )]
 
 editor/display_folded = true
+visible = false
 position = Vector2( -574.097, 9.87533 )
 rotation = 1.5708
 scale = Vector2( 2, 1.07212 )
@@ -70,6 +74,7 @@ player = 2
 [node name="Goal4" parent="Goals" index="3" instance=ExtResource( 3 )]
 
 editor/display_folded = true
+visible = false
 position = Vector2( 567.332, 0.371303 )
 rotation = 1.5708
 scale = Vector2( 1.67596, 0.932481 )
@@ -78,7 +83,6 @@ player = 3
 
 [node name="Bounds" type="StaticBody2D" parent="." index="2"]
 
-editor/display_folded = true
 input_pickable = false
 collision_layer = 16
 collision_mask = 3
@@ -94,19 +98,19 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bounds" index="0"]
 
-position = Vector2( -672, 0 )
+position = Vector2( -665.977, 0.926582 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Bounds" index="1"]
 
-position = Vector2( 640, 0 )
+position = Vector2( 668.56, 1.58667 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Bounds" index="2"]
 
-position = Vector2( 0, -640 )
+position = Vector2( 3.1579, -418.947 )
 shape = SubResource( 2 )
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Bounds" index="3"]
@@ -148,8 +152,8 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="Bounds/Graphics" index="0"]
 
-position = Vector2( 0, -656 )
-scale = Vector2( 8, 3 )
+position = Vector2( 0, -536 )
+scale = Vector2( 8, 10.5 )
 texture = ExtResource( 4 )
 
 [node name="Sprite2" type="Sprite" parent="Bounds/Graphics" index="1"]
@@ -160,14 +164,14 @@ texture = ExtResource( 4 )
 
 [node name="Sprite3" type="Sprite" parent="Bounds/Graphics" index="2"]
 
-position = Vector2( -656, 0 )
-scale = Vector2( 0.749999, 32 )
+position = Vector2( -544, 0 )
+scale = Vector2( 2.5, 32 )
 texture = ExtResource( 4 )
 
 [node name="Sprite4" type="Sprite" parent="Bounds/Graphics" index="3"]
 
-position = Vector2( 656, 0 )
-scale = Vector2( 0.75, 32 )
+position = Vector2( 544, 0 )
+scale = Vector2( 2.5, 32 )
 texture = ExtResource( 4 )
 
 [node name="Sprite5" type="Sprite" parent="Bounds/Graphics" index="4"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://objects/ball.gd" type="Script" id=1]
 [ext_resource path="res://objects/brick_white.png" type="Texture" id=2]
@@ -7,16 +7,21 @@
 
 [sub_resource type="Gradient" id=1]
 
+offsets = PoolRealArray( 0.254438, 1 )
+colors = PoolColorArray( 0.13916, 0, 0.234375, 0, 0.544556, 0.359375, 1, 1 )
+
+[sub_resource type="Gradient" id=2]
+
 offsets = PoolRealArray( 0, 0.0532544, 0.100592, 0.136095, 0.988166 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 0, 0, 0.946108, 1, 1, 1, 0.898204, 1, 1, 1, 0.862275, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=2]
+[sub_resource type="GradientTexture" id=3]
 
 flags = 4
-gradient = SubResource( 1 )
+gradient = SubResource( 2 )
 width = 2048
 
-[sub_resource type="ParticlesMaterial" id=3]
+[sub_resource type="ParticlesMaterial" id=4]
 
 render_priority = 0
 trail_divisor = 1
@@ -45,7 +50,7 @@ angle = 0.0
 angle_random = 0.0
 scale = 10.0
 scale_random = 0.0
-color_ramp = SubResource( 2 )
+color_ramp = SubResource( 3 )
 hue_variation = 0.0
 hue_variation_random = 0.0
 anim_speed = 0.0
@@ -111,7 +116,7 @@ _sections_unfolded = [ "Damping" ]
 custom_solver_bias = 0.0
 radius = 10.0
 
-[node name="Ball" type="RigidBody2D" index="0"]
+[node name="Ball" type="RigidBody2D"]
 
 position = Vector2( -1.28273, -0.513468 )
 input_pickable = false
@@ -145,11 +150,13 @@ trail_length = 30
 [node name="Trail" type="Line2D" parent="Pivot" index="0"]
 
 points = PoolVector2Array(  )
-width = 10.0
+width = 18.0
 default_color = Color( 0.4, 0.5, 1, 1 )
+gradient = SubResource( 1 )
 texture_mode = 655463
-sharp_limit = 2.0
-round_precision = 8
+end_cap_mode = 2
+sharp_limit = 999.0
+round_precision = 1000
 _sections_unfolded = [ "Border", "Capping", "Fill" ]
 
 [node name="Sprite" type="Sprite" parent="Pivot" index="1"]
@@ -173,7 +180,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
-process_material = SubResource( 3 )
+process_material = SubResource( 4 )
 texture = ExtResource( 3 )
 normal_map = null
 h_frames = 1
@@ -184,7 +191,7 @@ _sections_unfolded = [ "Drawing", "Material", "Process Material", "Textures", "T
 
 rotation = 3.14159
 emitting = true
-amount = 32
+amount = 16
 lifetime = 1.0
 one_shot = false
 preprocess = 0.0

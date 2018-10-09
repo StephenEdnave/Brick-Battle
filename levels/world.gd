@@ -1,6 +1,6 @@
 extends Node2D
 
-var _main_menu = load("res://MainMenu.tscn")
+var _main_menu = load("res://main_menu/MainMenu.tscn")
 
 var _player = preload("res://characters/player/Player.tscn")
 var _ball = preload("res://objects/Ball.tscn")
@@ -12,11 +12,15 @@ var lives = []
 var start_countdown = 3
 
 var balls = 0
+var max_balls = 1
 
 var current_level = 0
 
 func _ready():
 	#OS.set_window_fullscreen(true)
+	max_balls = GameManager.num_balls
+	num_players = GameManager.num_players
+	
 	Utils.camera = $Camera
 	$StartCountdownTimer.connect("timeout", self, "_on_StartCountdownTimer_timeout")
 	$GameOverTimer.connect("timeout", self, "_on_GameOverTimer_timeout")
@@ -68,14 +72,14 @@ func _on_StartCountdownTimer_timeout():
 	$Interface/UI/MessageLabel.text = str(start_countdown)
 	
 	if start_countdown <= 0:
-		for i in range(num_players - balls):
+		for i in range(max_balls - balls):
 			spawn_ball(i)
 		$StartCountdownTimer.stop()
 		$Interface/UI/MessageLabel.hide()
 
 
 func _on_BallRespawnTimer_timeout():
-	for i in range(num_players - balls):
+	for i in range(max_balls - balls):
 		var rnd_spawn = randi() % num_players
 		spawn_ball(rnd_spawn)
 
@@ -127,11 +131,13 @@ func unpause():
 func level_win():
 	$Interface/UI/MessageLabel.text = "Spawning new bricks"
 	$Interface/UI/MessageLabel.show()
+	
+	current_level += 1
+	if current_level >= $Levels.get_child_count():
+		current_level = 0
+	print(current_level)
 	$NextLevelTimer.start()
 
 
 func _on_NextLevelTimer_timeout():
-	current_level += 1
-	if current_level >= $Levels.get_child_count():
-		current_level = 0
 	new_level()

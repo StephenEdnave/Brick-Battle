@@ -7,7 +7,7 @@ var speed = 300
 export (int) var acceleration = 50
 onready var _collision_particle = preload("res://objects/CollisionParticle.tscn")
 
-const MAX_SPEED = 600
+const MAX_SPEED = 800
 export (int) var trail_length = 30
 
 onready var MaxSpeedParticles = $MaxSpeedParticles
@@ -58,7 +58,11 @@ func _on_Ball_body_entered( body ):
 
 
 func _accelerate():
-	var new_speed = min(speed + acceleration, MAX_SPEED)
+	var new_acceleration = acceleration
+	if speed >= MAX_SPEED:
+		new_acceleration *= MAX_SPEED / float(pow(speed, 1.4))
+		print(new_acceleration)
+	var new_speed = speed + new_acceleration
 	return new_speed
 
 

@@ -2,10 +2,10 @@
 
 [ext_resource path="res://levels/world.gd" type="Script" id=1]
 [ext_resource path="res://Background.tscn" type="PackedScene" id=2]
-[ext_resource path="res://objects/Goal.tscn" type="PackedScene" id=3]
-[ext_resource path="res://objects/brick_white.png" type="Texture" id=4]
-[ext_resource path="res://camera.gd" type="Script" id=5]
-[ext_resource path="res://ARCADECLASSIC.TTF" type="DynamicFontData" id=6]
+[ext_resource path="res://objects/brick_white.png" type="Texture" id=3]
+[ext_resource path="res://camera.gd" type="Script" id=4]
+[ext_resource path="res://ARCADECLASSIC.TTF" type="DynamicFontData" id=5]
+[ext_resource path="res://objects/Goal.tscn" type="PackedScene" id=6]
 [ext_resource path="res://levels/4_players/levels/Level2.tscn" type="PackedScene" id=7]
 [ext_resource path="res://levels/4_players/levels/Level1.tscn" type="PackedScene" id=8]
 
@@ -24,7 +24,7 @@ extents = Vector2( 512, 32 )
 size = 64
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 6 )
+font_data = ExtResource( 5 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=4]
@@ -32,7 +32,7 @@ _sections_unfolded = [ "Font", "Settings" ]
 size = 48
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 6 )
+font_data = ExtResource( 5 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Resource", "Settings" ]
 
 [node name="World" type="Node2D"]
@@ -44,41 +44,8 @@ _sections_unfolded = [ "Pause", "Transform", "Z Index" ]
 
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="Goals" type="Node2D" parent="." index="1"]
+[node name="Bounds" type="StaticBody2D" parent="." index="1"]
 
-[node name="Goal1" parent="Goals" index="0" instance=ExtResource( 3 )]
-
-editor/display_folded = true
-position = Vector2( 0, 582 )
-scale = Vector2( 2, 1.1875 )
-
-[node name="Goal2" parent="Goals" index="1" instance=ExtResource( 3 )]
-
-position = Vector2( 0, -574.422 )
-scale = Vector2( 2, 1.04151 )
-player = 1
-
-[node name="Goal3" parent="Goals" index="2" instance=ExtResource( 3 )]
-
-editor/display_folded = true
-position = Vector2( -574.097, 9.87533 )
-rotation = 1.5708
-scale = Vector2( 2, 1.07212 )
-_sections_unfolded = [ "Collision", "Transform" ]
-player = 2
-
-[node name="Goal4" parent="Goals" index="3" instance=ExtResource( 3 )]
-
-editor/display_folded = true
-position = Vector2( 567.332, 0.371303 )
-rotation = 1.5708
-scale = Vector2( 1.67596, 0.932481 )
-_sections_unfolded = [ "Collision", "Transform" ]
-player = 3
-
-[node name="Bounds" type="StaticBody2D" parent="." index="2"]
-
-editor/display_folded = true
 input_pickable = false
 collision_layer = 16
 collision_mask = 3
@@ -100,7 +67,8 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Bounds" index="1"]
 
-position = Vector2( 640, 0 )
+position = Vector2( 512, 0 )
+scale = Vector2( 4.15714, 1 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
@@ -150,44 +118,44 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( 0, -656 )
 scale = Vector2( 8, 3 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 
 [node name="Sprite2" type="Sprite" parent="Bounds/Graphics" index="1"]
 
 position = Vector2( 0, 656 )
 scale = Vector2( 8, 3 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 
 [node name="Sprite3" type="Sprite" parent="Bounds/Graphics" index="2"]
 
 position = Vector2( -656, 0 )
 scale = Vector2( 0.749999, 32 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 
 [node name="Sprite4" type="Sprite" parent="Bounds/Graphics" index="3"]
 
-position = Vector2( 656, 0 )
-scale = Vector2( 0.75, 32 )
-texture = ExtResource( 4 )
+position = Vector2( 544, 0 )
+scale = Vector2( 2.5, 32 )
+texture = ExtResource( 3 )
 
 [node name="Sprite5" type="Sprite" parent="Bounds/Graphics" index="4"]
 
 position = Vector2( -288, -448 )
 scale = Vector2( 1.5, 4 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 
 [node name="Sprite6" type="Sprite" parent="Bounds/Graphics" index="5"]
 
 position = Vector2( 288, -448 )
 scale = Vector2( 1.5, 4 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 
 [node name="Sprite13" type="Sprite" parent="Bounds/Graphics" index="6"]
 
 position = Vector2( -448.12, -447.679 )
 rotation = 0.785398
 scale = Vector2( 3.52885, 8.54734 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Sprite14" type="Sprite" parent="Bounds/Graphics" index="7"]
@@ -195,7 +163,7 @@ _sections_unfolded = [ "Transform" ]
 position = Vector2( 448.157, 448.571 )
 rotation = 0.785398
 scale = Vector2( 3.54029, 8.54852 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Sprite15" type="Sprite" parent="Bounds/Graphics" index="8"]
@@ -203,7 +171,7 @@ _sections_unfolded = [ "Transform" ]
 position = Vector2( -448.404, 447.706 )
 rotation = -0.785398
 scale = Vector2( 3.56581, 8.46004 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Sprite16" type="Sprite" parent="Bounds/Graphics" index="9"]
@@ -211,46 +179,46 @@ _sections_unfolded = [ "Transform" ]
 position = Vector2( 449, -446.856 )
 rotation = -0.785398
 scale = Vector2( 3.56724, 8.38982 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Sprite7" type="Sprite" parent="Bounds/Graphics" index="10"]
 
 position = Vector2( 256, 448 )
 scale = Vector2( 1, 4 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 
 [node name="Sprite8" type="Sprite" parent="Bounds/Graphics" index="11"]
 
 position = Vector2( -256, 448 )
 scale = Vector2( 1, 4 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 
 [node name="Sprite9" type="Sprite" parent="Bounds/Graphics" index="12"]
 
 position = Vector2( -448, -256 )
 scale = Vector2( 1, 4 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 
 [node name="Sprite10" type="Sprite" parent="Bounds/Graphics" index="13"]
 
 position = Vector2( -448, 288 )
 scale = Vector2( 1, 6 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 
 [node name="Sprite11" type="Sprite" parent="Bounds/Graphics" index="14"]
 
 position = Vector2( 448, 256 )
 scale = Vector2( 1, 4 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 
 [node name="Sprite12" type="Sprite" parent="Bounds/Graphics" index="15"]
 
 position = Vector2( 448, -256 )
 scale = Vector2( 1, 4 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 
-[node name="Camera" type="Camera2D" parent="." index="3"]
+[node name="Camera" type="Camera2D" parent="." index="2"]
 
 anchor_mode = 1
 rotating = false
@@ -274,10 +242,10 @@ drag_margin_bottom = 0.2
 editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
-script = ExtResource( 5 )
+script = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Interface" type="CanvasLayer" parent="." index="4"]
+[node name="Interface" type="CanvasLayer" parent="." index="3"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -525,6 +493,38 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
+
+[node name="Goals" type="Node2D" parent="." index="4"]
+
+[node name="Goal1" parent="Goals" index="0" instance=ExtResource( 6 )]
+
+editor/display_folded = true
+position = Vector2( 0, 582 )
+scale = Vector2( 2, 1.1875 )
+
+[node name="Goal2" parent="Goals" index="1" instance=ExtResource( 6 )]
+
+position = Vector2( 0, -576 )
+scale = Vector2( 2, 1 )
+player = 1
+
+[node name="Goal3" parent="Goals" index="2" instance=ExtResource( 6 )]
+
+editor/display_folded = true
+position = Vector2( -574.097, 9.87533 )
+rotation = 1.5708
+scale = Vector2( 2, 1.07212 )
+_sections_unfolded = [ "Collision", "Transform" ]
+player = 2
+
+[node name="Goal4" parent="Goals" index="3" instance=ExtResource( 6 )]
+
+editor/display_folded = true
+position = Vector2( 567.332, 0.371303 )
+rotation = 1.5708
+scale = Vector2( 1.67596, 0.932481 )
+_sections_unfolded = [ "Collision", "Transform" ]
+player = 3
 
 [node name="StartPositions" type="Node2D" parent="." index="5"]
 

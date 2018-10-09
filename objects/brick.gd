@@ -35,5 +35,5 @@ func die():
 			new_object.position = position
 			get_parent().add_child(new_object)
 	
-	emit_signal("brick_died", new_brick)
+	emit_signal("brick_died", self, new_brick)
 	queue_free()
