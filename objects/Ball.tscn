@@ -5,7 +5,7 @@
 [ext_resource path="res://objects/ball.png" type="Texture" id=3]
 [ext_resource path="res://assets/audio/Block_Destroy.wav" type="AudioStream" id=4]
 
-[sub_resource type="Gradient" id=9]
+[sub_resource type="Gradient" id=1]
 
 offsets = PoolRealArray( 0.254438, 1 )
 colors = PoolColorArray( 0.13916, 0, 0.234375, 0, 0.544556, 0.359375, 1, 1 )
@@ -60,13 +60,13 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Angular Velocity", "Color", "Gravity", "Initial Velocity", "Scale" ]
 
-[sub_resource type="GradientTexture" id=12]
+[sub_resource type="GradientTexture" id=5]
 
 flags = 4
 gradient = SubResource( 2 )
 width = 2048
 
-[sub_resource type="ParticlesMaterial" id=13]
+[sub_resource type="ParticlesMaterial" id=6]
 
 render_priority = 0
 trail_divisor = 1
@@ -95,7 +95,7 @@ angle = 0.0
 angle_random = 0.0
 scale = 3.0
 scale_random = 0.0
-color_ramp = SubResource( 12 )
+color_ramp = SubResource( 5 )
 hue_variation = 0.0
 hue_variation_random = 0.0
 anim_speed = 0.0
@@ -105,23 +105,23 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Angular Velocity", "Color", "Gravity", "Initial Velocity", "Linear Accel", "Orbit Velocity", "Scale" ]
 
-[sub_resource type="StreamTexture" id=14]
+[sub_resource type="StreamTexture" id=7]
 
 flags = 0
 load_path = "res://.import/ball.png-f2fd0c4b15c84248ba14d119780fbcbc.stex"
 
-[sub_resource type="Gradient" id=5]
+[sub_resource type="Gradient" id=8]
 
 offsets = PoolRealArray( 0, 0.0591716, 0.254438, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 0, 0, 0.928994, 1, 0.925781, 0.925781, 0.882252, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=6]
+[sub_resource type="GradientTexture" id=9]
 
 flags = 4
-gradient = SubResource( 5 )
+gradient = SubResource( 8 )
 width = 2048
 
-[sub_resource type="ParticlesMaterial" id=7]
+[sub_resource type="ParticlesMaterial" id=10]
 
 render_priority = 0
 trail_divisor = 1
@@ -151,7 +151,7 @@ angle = 0.0
 angle_random = 0.0
 scale = 0.1
 scale_random = 0.0
-color_ramp = SubResource( 6 )
+color_ramp = SubResource( 9 )
 hue_variation = 0.0
 hue_variation_random = 0.0
 anim_speed = 0.0
@@ -161,14 +161,13 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Damping" ]
 
-[sub_resource type="CircleShape2D" id=8]
+[sub_resource type="CircleShape2D" id=11]
 
 custom_solver_bias = 0.0
 radius = 10.0
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=12]
 
-resource_name = "SETUP"
 length = 0.01
 loop = false
 step = 0.1
@@ -197,9 +196,8 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=13]
 
-resource_name = "enter"
 length = 0.5
 loop = false
 step = 0.1
@@ -240,7 +238,7 @@ tracks/2/keys = {
 "values": [ true ]
 }
 
-[node name="Ball" type="RigidBody2D"]
+[node name="Ball" type="RigidBody2D" index="0"]
 
 position = Vector2( -1.28273, -0.513468 )
 input_pickable = false
@@ -276,7 +274,7 @@ trail_length = 30
 points = PoolVector2Array(  )
 width = 18.0
 default_color = Color( 0.4, 0.5, 1, 1 )
-gradient = SubResource( 9 )
+gradient = SubResource( 1 )
 texture_mode = 655463
 end_cap_mode = 2
 sharp_limit = 999.0
@@ -326,8 +324,8 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
-process_material = SubResource( 13 )
-texture = SubResource( 14 )
+process_material = SubResource( 6 )
+texture = SubResource( 7 )
 normal_map = null
 h_frames = 1
 v_frames = 1
@@ -349,7 +347,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 7 )
+process_material = SubResource( 10 )
 texture = ExtResource( 2 )
 normal_map = null
 h_frames = 1
@@ -358,7 +356,7 @@ _sections_unfolded = [ "Drawing" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="4"]
 
-shape = SubResource( 8 )
+shape = SubResource( 11 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Sound" type="AudioStreamPlayer2D" parent="." index="5"]
@@ -397,8 +395,8 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/SETUP = SubResource( 10 )
-anims/enter = SubResource( 11 )
+anims/SETUP = SubResource( 12 )
+anims/enter = SubResource( 13 )
 blend_times = [  ]
 _sections_unfolded = [ "Playback Options" ]
 

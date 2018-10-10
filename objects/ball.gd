@@ -14,7 +14,7 @@ onready var MaxSpeedParticles = $MaxSpeedParticles
 
 func _ready():
 	MaxSpeedParticles.emitting = false
-	set_physics_process(false)
+	speed = 1
 	$AnimationPlayer.play("enter")
 
 
@@ -103,5 +103,6 @@ func goal():
 
 func _on_animation_finished(anim_name):
 	if anim_name == "enter":
+		speed = 400
+		direction = -position.normalized()
 		linear_velocity = direction * speed
-		set_physics_process(true)

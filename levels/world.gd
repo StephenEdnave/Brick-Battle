@@ -20,7 +20,7 @@ enum STATES { NORMAL, GAME_OVER }
 var state = NORMAL
 
 func _ready():
-	#OS.set_window_fullscreen(true)
+	OS.set_window_fullscreen(true)
 	max_balls = GameManager.num_balls
 	num_players = GameManager.num_players
 	for i in range(num_players, $Interface/UI/Lives.get_child_count()):
