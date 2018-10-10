@@ -16,16 +16,23 @@ var max_balls = 1
 
 var current_level = 0
 
+enum STATES { NORMAL, GAME_OVER }
+var state = NORMAL
+
 func _ready():
 	#OS.set_window_fullscreen(true)
 	max_balls = GameManager.num_balls
 	num_players = GameManager.num_players
+	for i in range(num_players, $Interface/UI/Lives.get_child_count()):
+		$Interface/UI/Lives.get_child(i).visible = false
 	
 	Utils.camera = $Camera
 	$StartCountdownTimer.connect("timeout", self, "_on_StartCountdownTimer_timeout")
 	$GameOverTimer.connect("timeout", self, "_on_GameOverTimer_timeout")
 	$BallRespawnTimer.connect("timeout", self, "_on_BallRespawnTimer_timeout")
 	$NextLevelTimer.connect("timeout", self, "_on_NextLevelTimer_timeout")
+	$Interface/UI/GameOverHUD/VBoxContainer/RestartButton.connect("button_down", get_tree(), "reload_current_scene")
+	$Interface/UI/GameOverHUD/VBoxContainer/QuitButton.connect("button_down", self, "quit_to_main_menu")
 	
 	for level in $Levels.get_children():
 		level.connect("level_win", self, "level_win")
@@ -37,6 +44,15 @@ func _ready():
 		players[i].rotation_degrees = $StartPositions.get_child(i).rotation_degrees
 		players[i].show()
 		players[i].player = i
+		match i:
+			0:
+				players[i].modulate = Color(0.3,0.5,1, 1)
+			1:
+				players[i].modulate = Color(1, 0.2, 0.2, 1)
+			2:
+				players[i].modulate = Color(0.2, 1, 0.2, 1)
+			3:
+				players[i].modulate = Color(1, 1, 0.3, 1)
 		add_child(players[i])
 		lives.push_back(10)
 	
@@ -89,22 +105,49 @@ func spawn_ball(index):
 	var ball = _ball.instance()
 	ball.position = $BallSpawnPositions.get_child(index).position
 	ball.direction = -ball.position.normalized() # Assumes the game is centered around Vector2(0, 0)
-	ball.linear_velocity = ball.direction * ball.speed
 	add_child(ball)
 	balls += 1
 
 
 func goal(player):
-	balls -= 1
-	lives[player] -= 1
-	$Interface/UI/Lives.get_child(player).text = "p%s lives\n%s" % [player + 1, lives[player]]
 	$BallRespawnTimer.start()
+	balls -= 1
+	
+	lives[player] -= 1
+	$Interface/UI/Lives.get_child(player).get_child(1).text = "p%s lives\n%s" % [player + 1, lives[player]]
+	if lives[player] <= 0:
+		if num_players == 1:
+			game_over()
+		else:
+			$Interface/UI/Lives.get_child(player).get_child(1).text = "p%s\nhas no lives" % [player + 1]
+			
+			var alive_player = null
+			for i in range(lives.size()):
+				if lives[i] > 0:
+					if alive_player: # Found more than one alive player, keep going
+						return
+					alive_player = i
+			game_over()
 
 
 func game_over():
-	$Interface/UI/MessageLabel.text = "Game over!"
+	if state == GAME_OVER:
+		return
+	
+	state = GAME_OVER
+	if num_players == 1:
+		$Interface/UI/MessageLabel.text = "Game over!"
+	else:
+		var alive_player = 0
+		for i in range(lives.size()):
+			if lives[i] > 0:
+				alive_player = i
+				break
+		$Interface/UI/MessageLabel.text = "p%s won!" % [alive_player + 1]
 	$Interface/UI/MessageLabel.show()
 	$Interface/UI/GameOverHUD.show()
+	$Interface/UI/Lives.visible = false
+	$Interface/UI/GameOverHUD/VBoxContainer/QuitButton.grab_focus()
 
 
 func quit_to_main_menu():
@@ -129,6 +172,9 @@ func unpause():
 
 
 func level_win():
+	if state == GAME_OVER:
+		return
+	
 	$Interface/UI/MessageLabel.text = "Spawning new bricks"
 	$Interface/UI/MessageLabel.show()
 	

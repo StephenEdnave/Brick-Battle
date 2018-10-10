@@ -17,6 +17,7 @@ func spawn_bricks():
 				spawned_brick.queue_free()
 			var new_brick = brick.spawn_brick()
 			new_brick.connect("brick_died", self, "brick_died")
+			new_brick.get_node("AnimationPlayer").play("enter")
 			bricks.push_back(new_brick)
 			brick_count += 1
 			brick_max += 1
@@ -41,6 +42,6 @@ func brick_died(old_brick, new_brick):
 		if brick_count <= brick_max / 4:
 			emit_signal("level_win")
 			for brick in bricks:
-				brick.queue_free()
+				brick.get_node("AnimationPlayer").play("exit")
 			bricks = []
 			brick_count = 0

@@ -15,7 +15,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Player1" type="Node2D" parent="BrickPositions" index="0"]
 
-editor/display_folded = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="Pos16" parent="BrickPositions/Player1" index="0" instance=ExtResource( 2 )]

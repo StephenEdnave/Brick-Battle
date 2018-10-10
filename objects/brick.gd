@@ -6,6 +6,10 @@ export (int) var health = 1
 export (int) var next_brick = -1
 
 
+func _ready():
+	$AnimationPlayer.play("SETUP")
+
+
 func damage(value):
 	health -= value
 	if health <= 0:

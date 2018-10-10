@@ -1,0 +1,204 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://levels/level.gd" type="Script" id=1]
+[ext_resource path="res://objects/BrickPosition.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/audio/Block_Destroy.wav" type="AudioStream" id=3]
+
+[node name="Level" type="Node2D"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="BrickPositions" type="Node2D" parent="." index="0"]
+
+_sections_unfolded = [ "Transform" ]
+
+[node name="Player1" type="Node2D" parent="BrickPositions" index="0"]
+
+_sections_unfolded = [ "Transform" ]
+
+[node name="Pos8" parent="BrickPositions/Player1" index="0" instance=ExtResource( 2 )]
+
+position = Vector2( 0, 96 )
+index = 1
+
+[node name="Pos9" parent="BrickPositions/Player1" index="1" instance=ExtResource( 2 )]
+
+position = Vector2( 0, 160 )
+index = 1
+
+[node name="Pos10" parent="BrickPositions/Player1" index="2" instance=ExtResource( 2 )]
+
+position = Vector2( 0, 32 )
+index = 1
+
+[node name="Pos11" parent="BrickPositions/Player1" index="3" instance=ExtResource( 2 )]
+
+position = Vector2( 0, 224 )
+index = 1
+
+[node name="Pos12" parent="BrickPositions/Player1" index="4" instance=ExtResource( 2 )]
+
+position = Vector2( 0, 192 )
+index = 1
+
+[node name="Pos13" parent="BrickPositions/Player1" index="5" instance=ExtResource( 2 )]
+
+position = Vector2( 0, 128 )
+index = 1
+
+[node name="Pos14" parent="BrickPositions/Player1" index="6" instance=ExtResource( 2 )]
+
+position = Vector2( 0, 64 )
+index = 1
+
+[node name="Pos15" parent="BrickPositions/Player1" index="7" instance=ExtResource( 2 )]
+
+position = Vector2( 0, 64 )
+index = 1
+
+[node name="Player2" type="Node2D" parent="BrickPositions" index="1"]
+
+rotation = 3.14159
+_sections_unfolded = [ "Transform" ]
+
+[node name="Pos8" parent="BrickPositions/Player2" index="0" instance=ExtResource( 2 )]
+
+position = Vector2( 0, 96 )
+index = 1
+
+[node name="Pos9" parent="BrickPositions/Player2" index="1" instance=ExtResource( 2 )]
+
+position = Vector2( 0, 160 )
+index = 1
+
+[node name="Pos10" parent="BrickPositions/Player2" index="2" instance=ExtResource( 2 )]
+
+position = Vector2( 0, 32 )
+index = 1
+
+[node name="Pos11" parent="BrickPositions/Player2" index="3" instance=ExtResource( 2 )]
+
+position = Vector2( 0, 224 )
+index = 1
+
+[node name="Pos12" parent="BrickPositions/Player2" index="4" instance=ExtResource( 2 )]
+
+position = Vector2( 0, 192 )
+index = 1
+
+[node name="Pos13" parent="BrickPositions/Player2" index="5" instance=ExtResource( 2 )]
+
+position = Vector2( 0, 128 )
+index = 1
+
+[node name="Pos14" parent="BrickPositions/Player2" index="6" instance=ExtResource( 2 )]
+
+position = Vector2( 0, 64 )
+index = 1
+
+[node name="Pos15" parent="BrickPositions/Player2" index="7" instance=ExtResource( 2 )]
+
+position = Vector2( 0, 64 )
+index = 1
+
+[node name="Player3" type="Node2D" parent="BrickPositions" index="2"]
+
+rotation = 1.5708
+_sections_unfolded = [ "Transform" ]
+
+[node name="Pos8" parent="BrickPositions/Player3" index="0" instance=ExtResource( 2 )]
+
+position = Vector2( 0, 96 )
+index = 1
+
+[node name="Pos9" parent="BrickPositions/Player3" index="1" instance=ExtResource( 2 )]
+
+position = Vector2( 0, 160 )
+index = 1
+
+[node name="Pos10" parent="BrickPositions/Player3" index="2" instance=ExtResource( 2 )]
+
+position = Vector2( 0, 32 )
+index = 1
+
+[node name="Pos11" parent="BrickPositions/Player3" index="3" instance=ExtResource( 2 )]
+
+position = Vector2( 0, 224 )
+index = 1
+
+[node name="Pos12" parent="BrickPositions/Player3" index="4" instance=ExtResource( 2 )]
+
+position = Vector2( 0, 192 )
+index = 1
+
+[node name="Pos13" parent="BrickPositions/Player3" index="5" instance=ExtResource( 2 )]
+
+position = Vector2( 0, 128 )
+index = 1
+
+[node name="Pos14" parent="BrickPositions/Player3" index="6" instance=ExtResource( 2 )]
+
+position = Vector2( 0, 64 )
+index = 1
+
+[node name="Pos15" parent="BrickPositions/Player3" index="7" instance=ExtResource( 2 )]
+
+position = Vector2( 0, 64 )
+index = 1
+
+[node name="Player4" type="Node2D" parent="BrickPositions" index="3"]
+
+rotation = 4.71239
+_sections_unfolded = [ "Transform" ]
+
+[node name="Pos8" parent="BrickPositions/Player4" index="0" instance=ExtResource( 2 )]
+
+position = Vector2( 0, 96 )
+index = 1
+
+[node name="Pos9" parent="BrickPositions/Player4" index="1" instance=ExtResource( 2 )]
+
+position = Vector2( 0, 160 )
+index = 1
+
+[node name="Pos10" parent="BrickPositions/Player4" index="2" instance=ExtResource( 2 )]
+
+position = Vector2( 0, 32 )
+index = 1
+
+[node name="Pos11" parent="BrickPositions/Player4" index="3" instance=ExtResource( 2 )]
+
+position = Vector2( 0, 224 )
+index = 1
+
+[node name="Pos12" parent="BrickPositions/Player4" index="4" instance=ExtResource( 2 )]
+
+position = Vector2( 0, 192 )
+index = 1
+
+[node name="Pos13" parent="BrickPositions/Player4" index="5" instance=ExtResource( 2 )]
+
+position = Vector2( 0, 128 )
+index = 1
+
+[node name="Pos14" parent="BrickPositions/Player4" index="6" instance=ExtResource( 2 )]
+
+position = Vector2( 0, 64 )
+index = 1
+
+[node name="Pos15" parent="BrickPositions/Player4" index="7" instance=ExtResource( 2 )]
+
+position = Vector2( 0, 64 )
+index = 1
+
+[node name="BrickDestroySound" type="AudioStreamPlayer" parent="." index="1"]
+
+stream = ExtResource( 3 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+

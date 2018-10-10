@@ -3,7 +3,7 @@ extends RigidBody2D
 signal ball_died
 
 var direction = Vector2()
-var speed = 300
+var speed = 400
 export (int) var acceleration = 50
 onready var _collision_particle = preload("res://objects/CollisionParticle.tscn")
 
@@ -14,6 +14,8 @@ onready var MaxSpeedParticles = $MaxSpeedParticles
 
 func _ready():
 	MaxSpeedParticles.emitting = false
+	set_physics_process(false)
+	$AnimationPlayer.play("enter")
 
 
 func _physics_process(delta):
@@ -40,6 +42,12 @@ func _on_Ball_body_entered( body ):
 		Utils.screen_freeze(0.008)
 		Utils.camera.shake(0.4, 24, 4)
 		new_direction = (global_position - body.Offset.global_position).normalized()
+		# Spawn collision particle
+		var collision_particle = _collision_particle.instance()
+		collision_particle.rotation_degrees = rad2deg(linear_velocity.angle() + PI/4)
+		collision_particle.position = position
+		collision_particle.restart()
+		get_parent().add_child(collision_particle)
 	
 	speed = _accelerate()
 	if speed >= MAX_SPEED:
@@ -91,3 +99,9 @@ func goal():
 	$Timer.start()
 	yield($Timer, "timeout")
 	queue_free()
+
+
+func _on_animation_finished(anim_name):
+	if anim_name == "enter":
+		linear_velocity = direction * speed
+		set_physics_process(true)

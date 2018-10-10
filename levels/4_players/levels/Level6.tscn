@@ -15,162 +15,166 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Player1" type="Node2D" parent="BrickPositions" index="0"]
 
+rotation = 0.785398
 _sections_unfolded = [ "Transform" ]
 
 [node name="Pos2" parent="BrickPositions/Player1" index="0" instance=ExtResource( 2 )]
 
 position = Vector2( -192, 224 )
-index = 1
+index = 2
 
 [node name="Pos3" parent="BrickPositions/Player1" index="1" instance=ExtResource( 2 )]
 
 position = Vector2( -128, 224 )
-index = 1
+index = 2
 
 [node name="Pos4" parent="BrickPositions/Player1" index="2" instance=ExtResource( 2 )]
 
 position = Vector2( -64, 224 )
-index = 1
+index = 2
 
 [node name="Pos5" parent="BrickPositions/Player1" index="3" instance=ExtResource( 2 )]
 
 position = Vector2( 0, 224 )
-index = 1
+index = 2
 
 [node name="Pos6" parent="BrickPositions/Player1" index="4" instance=ExtResource( 2 )]
 
 position = Vector2( 64, 224 )
-index = 1
+index = 2
 
 [node name="Pos7" parent="BrickPositions/Player1" index="5" instance=ExtResource( 2 )]
 
 position = Vector2( 128, 224 )
-index = 1
+index = 2
 
 [node name="Pos8" parent="BrickPositions/Player1" index="6" instance=ExtResource( 2 )]
 
 position = Vector2( 192, 224 )
-index = 1
+index = 2
 
 [node name="Player2" type="Node2D" parent="BrickPositions" index="1"]
 
-rotation = 3.14159
+editor/display_folded = true
+rotation = 3.92699
 _sections_unfolded = [ "Transform" ]
 
 [node name="Pos2" parent="BrickPositions/Player2" index="0" instance=ExtResource( 2 )]
 
 position = Vector2( -192, 224 )
-index = 1
+index = 2
 
 [node name="Pos3" parent="BrickPositions/Player2" index="1" instance=ExtResource( 2 )]
 
 position = Vector2( -128, 224 )
-index = 1
+index = 2
 
 [node name="Pos4" parent="BrickPositions/Player2" index="2" instance=ExtResource( 2 )]
 
 position = Vector2( -64, 224 )
-index = 1
+index = 2
 
 [node name="Pos5" parent="BrickPositions/Player2" index="3" instance=ExtResource( 2 )]
 
 position = Vector2( 0, 224 )
-index = 1
+index = 2
 
 [node name="Pos6" parent="BrickPositions/Player2" index="4" instance=ExtResource( 2 )]
 
 position = Vector2( 64, 224 )
-index = 1
+index = 2
 
 [node name="Pos7" parent="BrickPositions/Player2" index="5" instance=ExtResource( 2 )]
 
 position = Vector2( 128, 224 )
-index = 1
+index = 2
 
 [node name="Pos8" parent="BrickPositions/Player2" index="6" instance=ExtResource( 2 )]
 
 position = Vector2( 192, 224 )
-index = 1
+index = 2
 
 [node name="Player3" type="Node2D" parent="BrickPositions" index="2"]
 
-rotation = 1.5708
+editor/display_folded = true
+rotation = 2.35619
 _sections_unfolded = [ "Transform" ]
 
 [node name="Pos2" parent="BrickPositions/Player3" index="0" instance=ExtResource( 2 )]
 
 position = Vector2( -192, 224 )
-index = 1
+index = 2
 
 [node name="Pos3" parent="BrickPositions/Player3" index="1" instance=ExtResource( 2 )]
 
 position = Vector2( -128, 224 )
-index = 1
+index = 2
 
 [node name="Pos4" parent="BrickPositions/Player3" index="2" instance=ExtResource( 2 )]
 
 position = Vector2( -64, 224 )
-index = 1
+index = 2
 
 [node name="Pos5" parent="BrickPositions/Player3" index="3" instance=ExtResource( 2 )]
 
 position = Vector2( 0, 224 )
-index = 1
+index = 2
 
 [node name="Pos6" parent="BrickPositions/Player3" index="4" instance=ExtResource( 2 )]
 
 position = Vector2( 64, 224 )
-index = 1
+index = 2
 
 [node name="Pos7" parent="BrickPositions/Player3" index="5" instance=ExtResource( 2 )]
 
 position = Vector2( 128, 224 )
-index = 1
+index = 2
 
 [node name="Pos8" parent="BrickPositions/Player3" index="6" instance=ExtResource( 2 )]
 
 position = Vector2( 192, 224 )
-index = 1
+index = 2
 
 [node name="Player4" type="Node2D" parent="BrickPositions" index="3"]
 
-rotation = 4.71239
+editor/display_folded = true
+rotation = 5.49779
 _sections_unfolded = [ "Transform" ]
 
 [node name="Pos2" parent="BrickPositions/Player4" index="0" instance=ExtResource( 2 )]
 
 position = Vector2( -192, 224 )
-index = 1
+index = 2
 
 [node name="Pos3" parent="BrickPositions/Player4" index="1" instance=ExtResource( 2 )]
 
 position = Vector2( -128, 224 )
-index = 1
+index = 2
 
 [node name="Pos4" parent="BrickPositions/Player4" index="2" instance=ExtResource( 2 )]
 
 position = Vector2( -64, 224 )
-index = 1
+index = 2
 
 [node name="Pos5" parent="BrickPositions/Player4" index="3" instance=ExtResource( 2 )]
 
 position = Vector2( 0, 224 )
-index = 1
+index = 2
 
 [node name="Pos6" parent="BrickPositions/Player4" index="4" instance=ExtResource( 2 )]
 
 position = Vector2( 64, 224 )
-index = 1
+index = 2
 
 [node name="Pos7" parent="BrickPositions/Player4" index="5" instance=ExtResource( 2 )]
 
 position = Vector2( 128, 224 )
-index = 1
+index = 2
 
 [node name="Pos8" parent="BrickPositions/Player4" index="6" instance=ExtResource( 2 )]
 
 position = Vector2( 192, 224 )
-index = 1
+index = 2
 
 [node name="BrickDestroySound" type="AudioStreamPlayer" parent="." index="1"]
 
