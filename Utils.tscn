@@ -18,7 +18,7 @@
 [ext_resource path="res://assets/audio/music/Track 25 (Kyousuke's Theme).ogg" type="AudioStream" id=16]
 [ext_resource path="res://assets/audio/music/Track 26 (Krila's Theme).ogg" type="AudioStream" id=17]
 
-[node name="Utils" type="Node" index="0"]
+[node name="Utils" type="Node"]
 
 pause_mode = 2
 script = ExtResource( 1 )
@@ -26,6 +26,8 @@ _sections_unfolded = [ "Pause" ]
 music = [ null, null, null ]
 
 [node name="Music" type="Node" parent="." index="0"]
+
+editor/display_folded = true
 
 [node name="QP" type="AudioStreamPlayer" parent="Music" index="0"]
 

@@ -97,7 +97,35 @@ flat = false
 align = 1
 _sections_unfolded = [ "Anchor", "Focus", "Margin", "Rect", "custom_fonts", "custom_styles" ]
 
-[node name="ExitButton" type="Button" parent="UI/Buttons" index="1"]
+[node name="OnlineButton" type="Button" parent="UI/Buttons" index="1"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 174.0
+margin_right = 500.0
+margin_bottom = 324.0
+rect_min_size = Vector2( 500, 150 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 1 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Online"
+flat = false
+align = 1
+_sections_unfolded = [ "Anchor", "Focus", "Margin", "Rect", "custom_fonts", "custom_styles" ]
+
+[node name="ExitButton" type="Button" parent="UI/Buttons" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -126,13 +154,12 @@ _sections_unfolded = [ "Anchor", "Focus", "Margin", "Rect", "custom_fonts", "cus
 
 [node name="MessageLabel" type="Label" parent="UI" index="1"]
 
-anchor_left = 0.5
+anchor_left = 0.0
 anchor_top = 0.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.0
-margin_left = -256.0
-margin_right = 256.0
-margin_bottom = 130.0
+margin_top = 111.0
+margin_bottom = 176.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -149,6 +176,8 @@ max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
 [connection signal="button_down" from="UI/Buttons/StartButton" to="." method="_on_StartButton_button_down"]
+
+[connection signal="button_down" from="UI/Buttons/OnlineButton" to="." method="_on_OnlineButton_button_down"]
 
 [connection signal="button_down" from="UI/Buttons/ExitButton" to="." method="_on_ExitButton_button_down"]
 

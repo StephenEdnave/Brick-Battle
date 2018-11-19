@@ -17,14 +17,6 @@ func _ready():
 	_on_Music_finished()
 
 
-func _input(event):
-	if event.is_action_pressed("pause"):
-		if get_tree().paused == true:
-			get_node("/root/World").pause()
-		else:
-			get_node("/root/World").unpause()
-
-
 func initialize_screen_freeze_timer():
 	screen_freeze_timer = Timer.new()
 	screen_freeze_timer.one_shot = true

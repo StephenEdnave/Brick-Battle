@@ -9,3 +9,7 @@ func _on_StartButton_button_down():
 
 func _on_ExitButton_button_down():
 	get_tree().quit()
+
+
+func _on_OnlineButton_button_down():
+	GameManager.change_scene("res://interface/Menu.tscn")

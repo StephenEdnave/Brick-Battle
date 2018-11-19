@@ -1,13 +1,14 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://ARCADECLASSIC.TTF" type="DynamicFontData" id=1]
+[ext_resource path="res://interface/Interface.gd" type="Script" id=1]
+[ext_resource path="res://ARCADECLASSIC.TTF" type="DynamicFontData" id=2]
 
 [sub_resource type="DynamicFont" id=1]
 
 size = 64
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 1 )
+font_data = ExtResource( 2 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=2]
@@ -15,16 +16,19 @@ _sections_unfolded = [ "Font", "Settings" ]
 size = 48
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 1 )
+font_data = ExtResource( 2 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Resource", "Settings" ]
 
 [node name="Interface" type="CanvasLayer"]
 
+pause_mode = 2
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+script = ExtResource( 1 )
+_sections_unfolded = [ "Pause" ]
 
 [node name="UI" type="Control" parent="." index="0"]
 
@@ -38,6 +42,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+_sections_unfolded = [ "Pause" ]
 
 [node name="MessageLabel" type="Label" parent="UI" index="0"]
 
@@ -45,11 +50,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -960.0
-margin_top = -65.0
-margin_right = 960.0
-margin_bottom = 65.0
-rect_min_size = Vector2( 1920, 0 )
+margin_left = -300.0
+margin_top = -394.0
+margin_right = 300.0
+margin_bottom = 6.0
+rect_min_size = Vector2( 600, 0 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -60,17 +65,22 @@ custom_fonts/font = SubResource( 1 )
 text = "Breakout Boi"
 align = 1
 valign = 1
+autowrap = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_fonts" ]
+_sections_unfolded = [ "Pause", "Rect", "custom_fonts" ]
 
 [node name="GameOverHUD" type="Control" parent="UI" index="1"]
 
+editor/display_folded = true
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+margin_top = -184.0
+margin_bottom = -184.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -81,14 +91,15 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/GameOverHUD" index="0"]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = -192.0
-margin_top = 64.0
-margin_right = 228.0
-margin_bottom = 224.0
+editor/display_folded = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -210.0
+margin_top = 80.0
+margin_right = 210.0
+margin_bottom = 240.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -152,7 +163,146 @@ flat = false
 align = 1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[node name="Lives" type="Control" parent="UI" index="2"]
+[node name="PauseHUD" type="Control" parent="UI" index="2"]
+
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Pause", "Rect" ]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/PauseHUD" index="0"]
+
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -210.0
+margin_top = -176.5
+margin_right = 210.0
+margin_bottom = 176.5
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/separation = 32
+alignment = 1
+_sections_unfolded = [ "Pause", "custom_constants" ]
+
+[node name="Label" type="Label" parent="UI/PauseHUD/VBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 420.0
+margin_bottom = 65.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+text = "paused"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="ResumeButton" type="Button" parent="UI/PauseHUD/VBoxContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 97.0
+margin_right = 420.0
+margin_bottom = 161.0
+rect_min_size = Vector2( 420, 64 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 2 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Resume"
+flat = false
+align = 1
+_sections_unfolded = [ "Pause", "Rect", "custom_fonts" ]
+
+[node name="RestartButton" type="Button" parent="UI/PauseHUD/VBoxContainer" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 193.0
+margin_right = 420.0
+margin_bottom = 257.0
+rect_min_size = Vector2( 420, 64 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 2 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Restart"
+flat = false
+align = 1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="QuitButton" type="Button" parent="UI/PauseHUD/VBoxContainer" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 289.0
+margin_right = 420.0
+margin_bottom = 353.0
+rect_min_size = Vector2( 420, 64 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 2 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Quit To Main Menu"
+flat = false
+align = 1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="Lives" type="Control" parent="UI" index="3"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -183,7 +333,6 @@ size_flags_vertical = 1
 
 [node name="ColorRect" type="ColorRect" parent="UI/Lives/P1" index="0"]
 
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -196,7 +345,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-color = Color( 0, 0, 0, 1 )
+color = Color( 1, 1, 1, 1 )
 
 [node name="Label" type="Label" parent="UI/Lives/P1" index="1"]
 
@@ -214,7 +363,6 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.210938, 0.24176, 1, 1 )
 text = "p1   lives
 10"
 align = 1
@@ -222,7 +370,7 @@ valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "custom_fonts" ]
+_sections_unfolded = [ "Visibility", "custom_colors" ]
 
 [node name="P2" type="Control" parent="UI/Lives" index="1"]
 
@@ -241,7 +389,6 @@ size_flags_vertical = 1
 
 [node name="ColorRect" type="ColorRect" parent="UI/Lives/P2" index="0"]
 
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -254,7 +401,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-color = Color( 0, 0, 0, 1 )
+color = Color( 1, 1, 1, 1 )
 
 [node name="Label" type="Label" parent="UI/Lives/P2" index="1"]
 
@@ -272,7 +419,6 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 1, 0.210938, 0.210938, 1 )
 text = "p2   lives
 10"
 align = 1
@@ -299,7 +445,6 @@ size_flags_vertical = 1
 
 [node name="ColorRect" type="ColorRect" parent="UI/Lives/P3" index="0"]
 
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -312,7 +457,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-color = Color( 0, 0, 0, 1 )
+color = Color( 1, 1, 1, 1 )
 
 [node name="Label" type="Label" parent="UI/Lives/P3" index="1"]
 
@@ -330,7 +475,6 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.210938, 1, 0.24176, 1 )
 text = "p3   lives
 10"
 align = 1
@@ -357,7 +501,6 @@ size_flags_vertical = 1
 
 [node name="ColorRect" type="ColorRect" parent="UI/Lives/P4" index="0"]
 
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -370,7 +513,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-color = Color( 0, 0, 0, 1 )
+color = Color( 1, 1, 1, 1 )
 
 [node name="Label" type="Label" parent="UI/Lives/P4" index="1"]
 
@@ -390,7 +533,6 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.975342, 1, 0.210938, 1 )
 text = "p4  lives
 10"
 align = 1

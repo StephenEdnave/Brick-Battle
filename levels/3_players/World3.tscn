@@ -1,10 +1,10 @@
 [gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://levels/world.gd" type="Script" id=1]
+[ext_resource path="res://levels/World.gd" type="Script" id=1]
 [ext_resource path="res://Background.tscn" type="PackedScene" id=2]
 [ext_resource path="res://objects/Goal.tscn" type="PackedScene" id=3]
 [ext_resource path="res://objects/brick_white.png" type="Texture" id=4]
-[ext_resource path="res://camera.gd" type="Script" id=5]
+[ext_resource path="res://interface/camera.gd" type="Script" id=5]
 [ext_resource path="res://interface/Interface.tscn" type="PackedScene" id=6]
 [ext_resource path="res://levels/4_players/levels/Level0.tscn" type="PackedScene" id=7]
 [ext_resource path="res://levels/4_players/levels/Level1.tscn" type="PackedScene" id=8]
@@ -13,6 +13,8 @@
 [ext_resource path="res://levels/4_players/levels/Level6.tscn" type="PackedScene" id=11]
 [ext_resource path="res://levels/4_players/levels/Level7.tscn" type="PackedScene" id=12]
 [ext_resource path="res://levels/4_players/levels/Level8.tscn" type="PackedScene" id=13]
+
+
 
 [sub_resource type="RectangleShape2D" id=1]
 

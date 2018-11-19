@@ -18,8 +18,8 @@ config/icon="res://characters/player/paddle.png"
 [autoload]
 
 Utils="*res://Utils.tscn"
-Stats="*res://Stats.tscn"
 GameManager="*res://GameManager.tscn"
+Network="*res://Network.gd"
 
 [display]
 

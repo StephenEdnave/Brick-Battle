@@ -39,7 +39,8 @@ func brick_died(old_brick, new_brick):
 		
 		brick_count -= 1
 		$BrickDestroySound.play()
-		if brick_count <= brick_max / 4:
+		if (GameManager.num_players > 1 and brick_count <= brick_max / 4) \
+			or (GameManager.num_players <= 1 and brick_count == 0):
 			emit_signal("level_win")
 			for brick in bricks:
 				brick.get_node("AnimationPlayer").play("exit")

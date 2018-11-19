@@ -69,7 +69,6 @@ func _accelerate():
 	var new_acceleration = acceleration
 	if speed >= MAX_SPEED:
 		new_acceleration *= MAX_SPEED / float(pow(speed, 1.4))
-		print(new_acceleration)
 	var new_speed = speed + new_acceleration
 	return new_speed
 

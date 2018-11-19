@@ -22,6 +22,8 @@ func _on_player_button_down(players):
 
 func _on_ball_button_down(balls):
 	GameManager.num_balls = balls
+	$UI/Buttons/Balls.visible = false
+	
 	match GameManager.num_players:
 		1:
 			GameManager.change_scene("res://levels/1_player/World1.tscn")

@@ -42,7 +42,7 @@ func _physics_process(delta):
 			if not input_direction:
 				_change_state(IDLE)
 				return
-			move(delta)
+			move(delta, input_direction)
 
 
 func get_input_direction():
@@ -59,14 +59,14 @@ func update_direction():
 		$Pivot.set_scale(Vector2(look_direction.x, 1))
 
 
-func move(delta):
-	if input_direction:
+func move(delta, direction):
+	if direction:
 		if speed != max_speed:
 			speed = max_speed
 	else:
 		speed = 0
 	
-	velocity = input_direction.normalized() * speed
+	velocity = direction.normalized() * speed
 	move_and_slide(velocity, Vector2(), 5, 2)
 	#position += velocity * delta
 	var slide_count = get_slide_count()

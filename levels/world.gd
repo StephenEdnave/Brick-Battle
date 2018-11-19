@@ -1,7 +1,5 @@
 extends Node2D
 
-var _main_menu = load("res://main_menu/MainMenu.tscn")
-
 var _player = preload("res://characters/player/Player.tscn")
 var _ball = preload("res://objects/Ball.tscn")
 
@@ -28,11 +26,8 @@ func _ready():
 	
 	Utils.camera = $Camera
 	$StartCountdownTimer.connect("timeout", self, "_on_StartCountdownTimer_timeout")
-	$GameOverTimer.connect("timeout", self, "_on_GameOverTimer_timeout")
 	$BallRespawnTimer.connect("timeout", self, "_on_BallRespawnTimer_timeout")
 	$NextLevelTimer.connect("timeout", self, "_on_NextLevelTimer_timeout")
-	$Interface/UI/GameOverHUD/VBoxContainer/RestartButton.connect("button_down", get_tree(), "reload_current_scene")
-	$Interface/UI/GameOverHUD/VBoxContainer/QuitButton.connect("button_down", self, "quit_to_main_menu")
 	
 	for level in $Levels.get_children():
 		level.connect("level_win", self, "level_win")
@@ -44,22 +39,40 @@ func _ready():
 		players[i].rotation_degrees = $StartPositions.get_child(i).rotation_degrees
 		players[i].show()
 		players[i].player = i
-		match i:
-			0:
-				players[i].modulate = Color(0.3,0.5,1, 1)
-			1:
-				players[i].modulate = Color(1, 0.2, 0.2, 1)
-			2:
-				players[i].modulate = Color(0.2, 1, 0.2, 1)
-			3:
-				players[i].modulate = Color(1, 1, 0.3, 1)
+		players[i].modulate = GameManager.PlayerColors[i + 1]
+		players[i].name = str(get_tree().get_network_unique_id())
 		add_child(players[i])
+#		players[i].set_network_master(get_tree().get_network_unique_id())
+#		var info = Network.self_data
+#		players[i].init(info.name, info.position, false)
 		lives.push_back(10)
 	
 	new_game()
 
 
 func new_game():
+	$Interface/UI/MessageLabel.visible = true
+	for i in range(num_players):
+		if i < 2:
+			$Interface/UI/MessageLabel.text = "Player " + str(i + 1) + " press any button to move right"
+			yield(get_tree().create_timer(0.2), "timeout")
+			players[i].set_key("right")
+			yield(players[i], "set_movement")
+			$Interface/UI/MessageLabel.text = "Player " + str(i + 1) + " press any button to move left"
+			yield(get_tree().create_timer(0.2), "timeout")
+			players[i].set_key("left")
+			yield(players[i], "set_movement")
+		elif i >= 2:
+			$Interface/UI/MessageLabel.text = "Player " + str(i + 1) + " press any button to move up"
+			yield(get_tree().create_timer(0.2), "timeout")
+			players[i].set_key("up")
+			yield(players[i], "set_movement")
+			$Interface/UI/MessageLabel.text = "Player " + str(i + 1) + " press any button to move down"
+			yield(get_tree().create_timer(0.2), "timeout")
+			players[i].set_key("down")
+			yield(players[i], "set_movement")
+	$Interface/UI/MessageLabel.visible = false
+	
 	current_level = 0
 	new_level()
 
@@ -148,27 +161,6 @@ func game_over():
 	$Interface/UI/GameOverHUD.show()
 	$Interface/UI/Lives.visible = false
 	$Interface/UI/GameOverHUD/VBoxContainer/QuitButton.grab_focus()
-
-
-func quit_to_main_menu():
-	$GameOverTimer.start()
-
-
-func _on_GameOverTimer_timeout():
-	var main_menu = _main_menu.instance()
-	get_parent().add_child(main_menu)
-	queue_free()
-
-
-func pause():
-	get_tree().paused = true
-	$Interface/UI/MessageLabel.text = "Paused"
-	$Interface/UI/MessageLabel.show()
-
-
-func unpause():
-	get_tree().paused = false
-	$Interface/UI/MessageLabel.hide()
 
 
 func level_win():
