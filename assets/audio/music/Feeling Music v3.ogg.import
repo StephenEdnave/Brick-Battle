@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Feeling Music v3.ogg-cf6142cb8e5216941a42ab69d57bc423.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/music/Feeling Music v3.ogg"
+dest_files=[ "res://.import/Feeling Music v3.ogg-cf6142cb8e5216941a42ab69d57bc423.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

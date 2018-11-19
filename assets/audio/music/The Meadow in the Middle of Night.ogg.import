@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/The Meadow in the Middle of Night.ogg-bfea463973e089cc2b25534e9d0467ae.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/music/The Meadow in the Middle of Night.ogg"
+dest_files=[ "res://.import/The Meadow in the Middle of Night.ogg-bfea463973e089cc2b25534e9d0467ae.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

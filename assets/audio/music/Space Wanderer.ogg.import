@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Space Wanderer.ogg-0cbf313cf5ebf7eb35efc73b9d447d43.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/music/Space Wanderer.ogg"
+dest_files=[ "res://.import/Space Wanderer.ogg-0cbf313cf5ebf7eb35efc73b9d447d43.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

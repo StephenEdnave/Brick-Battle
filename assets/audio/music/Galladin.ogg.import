@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Galladin.ogg-6733590e0a51054123ffe2de2745f92a.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/music/Galladin.ogg"
+dest_files=[ "res://.import/Galladin.ogg-6733590e0a51054123ffe2de2745f92a.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

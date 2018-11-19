@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Cold Night.ogg-6260af528733f7f52f1844bbea377f0e.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/music/Cold Night.ogg"
+dest_files=[ "res://.import/Cold Night.ogg-6260af528733f7f52f1844bbea377f0e.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
