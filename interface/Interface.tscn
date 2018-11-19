@@ -19,7 +19,7 @@ use_filter = false
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Resource", "Settings" ]
 
-[node name="Interface" type="CanvasLayer"]
+[node name="Interface" type="CanvasLayer" index="0"]
 
 pause_mode = 2
 layer = 1
@@ -51,9 +51,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -300.0
-margin_top = -394.0
+margin_top = -200.0
 margin_right = 300.0
-margin_bottom = 6.0
+margin_bottom = 200.0
 rect_min_size = Vector2( 600, 0 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -74,13 +74,12 @@ _sections_unfolded = [ "Pause", "Rect", "custom_fonts" ]
 [node name="GameOverHUD" type="Control" parent="UI" index="1"]
 
 editor/display_folded = true
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_top = -184.0
-margin_bottom = -184.0
+margin_top = -23.0
+margin_bottom = -23.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
