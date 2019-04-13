@@ -15,17 +15,15 @@ var max_balls = 1
 var current_level = 0
 
 enum STATES { NORMAL, GAME_OVER }
-var state = NORMAL
+var state = STATES.NORMAL
 
 func _ready():
-	OS.set_window_fullscreen(true)
 	max_balls = GameManager.num_balls
 	num_players = GameManager.num_players
 	for i in range(num_players, $Interface/UI/Lives.get_child_count()):
 		$Interface/UI/Lives.get_child(i).visible = false
 	
 	Utils.camera = $Camera
-	$StartCountdownTimer.connect("timeout", self, "_on_StartCountdownTimer_timeout")
 	$BallRespawnTimer.connect("timeout", self, "_on_BallRespawnTimer_timeout")
 	$NextLevelTimer.connect("timeout", self, "_on_NextLevelTimer_timeout")
 	
@@ -40,7 +38,7 @@ func _ready():
 		players[i].show()
 		players[i].player = i
 		players[i].modulate = GameManager.PlayerColors[i + 1]
-		players[i].name = str(get_tree().get_network_unique_id())
+		#players[i].name = str(get_tree().get_network_unique_id())
 		add_child(players[i])
 #		players[i].set_network_master(get_tree().get_network_unique_id())
 #		var info = Network.self_data
@@ -81,30 +79,15 @@ func new_level():
 	var new_level = $Levels.get_child(current_level)
 	new_level.spawn_bricks()
 	
-	$Background/Background.modulate.r = (sin((current_level * 30) * (PI / 180) + 0) * 30 + 100) / 255
-	$Background/Background.modulate.g = (sin((current_level * 30) * (PI / 180) + 2) * 30 + 80) / 255
-	$Background/Background.modulate.b = (sin((current_level * 30) * (PI / 180) + 4) * 30 + 128) / 255
+	$Background/Background.modulate.r = (sin((current_level * 30) * (PI / 180) + 0) * 30 + 60) / 255
+	$Background/Background.modulate.g = (sin((current_level * 30) * (PI / 180) + 2) * 30 + 60) / 255
+	$Background/Background.modulate.b = (sin((current_level * 30) * (PI / 180) + 4) * 30 + 68) / 255
 	
 	$Interface/UI/GameOverHUD.hide()
+	$Interface/UI/MessageLabel.hide()
 	
-	start_StartCountdownTimer()
-
-
-func start_StartCountdownTimer():
-	start_countdown = 3
-	$Interface/UI/MessageLabel.text = str(start_countdown)
-	$StartCountdownTimer.start()
-
-
-func _on_StartCountdownTimer_timeout():
-	start_countdown -= 1
-	$Interface/UI/MessageLabel.text = str(start_countdown)
-	
-	if start_countdown <= 0:
-		for i in range(max_balls - balls):
-			spawn_ball(i)
-		$StartCountdownTimer.stop()
-		$Interface/UI/MessageLabel.hide()
+	for i in range(max_balls - balls):
+		spawn_ball(i)
 
 
 func _on_BallRespawnTimer_timeout():
@@ -144,10 +127,10 @@ func goal(player):
 
 
 func game_over():
-	if state == GAME_OVER:
+	if state == STATES.GAME_OVER:
 		return
 	
-	state = GAME_OVER
+	state = STATES.GAME_OVER
 	if num_players == 1:
 		$Interface/UI/MessageLabel.text = "Game over!"
 	else:
@@ -164,7 +147,7 @@ func game_over():
 
 
 func level_win():
-	if state == GAME_OVER:
+	if state == STATES.GAME_OVER:
 		return
 	
 	$Interface/UI/MessageLabel.text = "Spawning new bricks"
@@ -173,7 +156,6 @@ func level_win():
 	current_level += 1
 	if current_level >= $Levels.get_child_count():
 		current_level = 0
-	print(current_level)
 	$NextLevelTimer.start()
 
 

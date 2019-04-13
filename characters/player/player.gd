@@ -13,11 +13,13 @@ onready var Offset = $Offset
 #slave var slave_position = Vector2()
 #slave var slave_movement = Vector2()
 var controller_index = 0
+var uses_controller = false
 
 var setting_direction
 
 func _ready():
 	._ready()
+	GameManager.num_controllers = 0
 	originalPos = position
 
 func _process(delta):
@@ -86,6 +88,10 @@ func _input(event):
 				if key_up == event.scancode:
 					return
 				key_down = event.button_index
+		if not uses_controller:
+			controller_index = GameManager.num_controllers
+			GameManager.num_controllers += 1
+			uses_controller = true
 		set_process_input(false)
 		emit_signal("set_movement")
 

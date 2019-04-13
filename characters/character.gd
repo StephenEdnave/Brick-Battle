@@ -17,14 +17,14 @@ var state = null
 
 
 func _ready():
-	_change_state(IDLE)
+	_change_state(STATES.IDLE)
 
 
 func _change_state(new_state):
 	match new_state:
-		IDLE:
+		STATES.IDLE:
 			$AnimationPlayer.play("idle")
-		MOVE:
+		STATES.MOVE:
 			$AnimationPlayer.play("walk")
 	state = new_state
 
@@ -34,13 +34,13 @@ func _physics_process(delta):
 	update_direction()
 	
 	match state:
-		IDLE:
+		STATES.IDLE:
 			if input_direction:
-				_change_state(MOVE)
+				_change_state(STATES.MOVE)
 				return
-		MOVE:
+		STATES.MOVE:
 			if not input_direction:
-				_change_state(IDLE)
+				_change_state(STATES.IDLE)
 				return
 			move(delta, input_direction)
 

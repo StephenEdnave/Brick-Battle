@@ -19,7 +19,7 @@ use_filter = false
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Resource", "Settings" ]
 
-[node name="Interface" type="CanvasLayer" index="0"]
+[node name="Interface" type="CanvasLayer"]
 
 pause_mode = 2
 layer = 1
@@ -164,6 +164,7 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="PauseHUD" type="Control" parent="UI" index="2"]
 
+editor/display_folded = true
 visible = false
 anchor_left = 0.5
 anchor_top = 0.5
@@ -179,6 +180,7 @@ _sections_unfolded = [ "Pause", "Rect" ]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/PauseHUD" index="0"]
 
+editor/display_folded = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -303,7 +305,6 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="Lives" type="Control" parent="UI" index="3"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -344,7 +345,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-color = Color( 1, 1, 1, 1 )
+color = Color( 0, 0, 0, 1 )
 
 [node name="Label" type="Label" parent="UI/Lives/P1" index="1"]
 
@@ -400,7 +401,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-color = Color( 1, 1, 1, 1 )
+color = Color( 0, 0, 0, 1 )
 
 [node name="Label" type="Label" parent="UI/Lives/P2" index="1"]
 
@@ -456,7 +457,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-color = Color( 1, 1, 1, 1 )
+color = Color( 0, 0, 0, 1 )
 
 [node name="Label" type="Label" parent="UI/Lives/P3" index="1"]
 
@@ -512,7 +513,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-color = Color( 1, 1, 1, 1 )
+color = Color( 0, 0, 0, 1 )
 
 [node name="Label" type="Label" parent="UI/Lives/P4" index="1"]
 

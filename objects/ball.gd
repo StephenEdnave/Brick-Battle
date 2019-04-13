@@ -11,6 +11,7 @@ const MAX_SPEED = 800
 export (int) var trail_length = 30
 
 onready var MaxSpeedParticles = $MaxSpeedParticles
+var player = 0
 
 func _ready():
 	MaxSpeedParticles.emitting = false
@@ -39,6 +40,7 @@ func _on_Ball_body_entered( body ):
 				new_direction = direction
 	
 	if body.is_in_group("Player"):
+		set_player(body.player)
 		Utils.screen_freeze(0.008)
 		Utils.camera.shake(0.4, 24, 4)
 		new_direction = (global_position - body.Offset.global_position).normalized()
@@ -91,7 +93,7 @@ func goal():
 	Utils.camera.shake(0.8, 42, 24)
 	MaxSpeedParticles.emitting = false
 	$ExplodeParticles.emitting = true
-	$CollisionShape2D.disabled = true
+	$CollisionShape2D.set_deferred("disabled", true)
 	$Pivot.visible = false
 	$GoalSFX.play()
 	$Timer.wait_time = $ExplodeParticles.lifetime
@@ -105,3 +107,7 @@ func _on_animation_finished(anim_name):
 		speed = 400
 		direction = -position.normalized()
 		linear_velocity = direction * speed
+
+
+func set_player(player):
+	modulate = GameManager.PlayerColors[player + 1]

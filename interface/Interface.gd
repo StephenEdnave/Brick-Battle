@@ -25,6 +25,8 @@ func restart():
 	get_tree().reload_current_scene()
 
 func pause():
+	if $UI/GameOverHUD.visible:
+		return
 	get_tree().paused = not get_tree().paused
 	$UI/PauseHUD.visible = get_tree().paused
 	$UI/PauseHUD/VBoxContainer.get_node("ResumeButton").grab_focus()

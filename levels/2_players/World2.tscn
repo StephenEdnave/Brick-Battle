@@ -14,8 +14,6 @@
 [ext_resource path="res://levels/4_players/levels/Level7.tscn" type="PackedScene" id=12]
 [ext_resource path="res://levels/4_players/levels/Level8.tscn" type="PackedScene" id=13]
 
-
-
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
@@ -73,7 +71,6 @@ player = 3
 
 [node name="Bounds" type="StaticBody2D" parent="." index="2"]
 
-editor/display_folded = true
 input_pickable = false
 collision_layer = 16
 collision_mask = 3
@@ -141,6 +138,9 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Graphics" type="Node2D" parent="Bounds" index="8"]
 
+modulate = Color( 0, 0, 0, 1 )
+_sections_unfolded = [ "Visibility" ]
+
 [node name="Sprite" type="Sprite" parent="Bounds/Graphics" index="0"]
 
 position = Vector2( 0, -656 )
@@ -155,14 +155,14 @@ texture = ExtResource( 4 )
 
 [node name="Sprite3" type="Sprite" parent="Bounds/Graphics" index="2"]
 
-position = Vector2( -544, 0 )
-scale = Vector2( 2.5, 32 )
+position = Vector2( -977, 0 )
+scale = Vector2( 9.26563, 51.875 )
 texture = ExtResource( 4 )
 
 [node name="Sprite4" type="Sprite" parent="Bounds/Graphics" index="3"]
 
-position = Vector2( 544, 0 )
-scale = Vector2( 2.5, 32 )
+position = Vector2( 977, 0 )
+scale = Vector2( 9.26563, 53.125 )
 texture = ExtResource( 4 )
 
 [node name="Sprite5" type="Sprite" parent="Bounds/Graphics" index="4"]
@@ -304,43 +304,27 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Position1" type="Position2D" parent="BallSpawnPositions" index="0"]
 
-position = Vector2( -160, 320 )
+position = Vector2( 0, 350 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Position2" type="Position2D" parent="BallSpawnPositions" index="1"]
 
-position = Vector2( 160, -320 )
+position = Vector2( 0, -350 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Position3" type="Position2D" parent="BallSpawnPositions" index="2"]
 
-position = Vector2( -320, -160 )
+position = Vector2( -350, 0 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Position4" type="Position2D" parent="BallSpawnPositions" index="3"]
 
-position = Vector2( 320, 160 )
+position = Vector2( 350, 0 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Interface" parent="." index="6" instance=ExtResource( 6 )]
 
-[node name="StartCountdownTimer" type="Timer" parent="." index="7"]
-
-process_mode = 1
-wait_time = 0.5
-one_shot = false
-autostart = false
-
-[node name="GameOverTimer" type="Timer" parent="." index="8"]
-
-pause_mode = 2
-process_mode = 1
-wait_time = 0.1
-one_shot = true
-autostart = false
-_sections_unfolded = [ "Pause" ]
-
-[node name="BallRespawnTimer" type="Timer" parent="." index="9"]
+[node name="BallRespawnTimer" type="Timer" parent="." index="7"]
 
 process_mode = 1
 wait_time = 1.0
@@ -348,7 +332,7 @@ one_shot = true
 autostart = false
 _sections_unfolded = [ "Pause" ]
 
-[node name="NextLevelTimer" type="Timer" parent="." index="10"]
+[node name="NextLevelTimer" type="Timer" parent="." index="8"]
 
 pause_mode = 2
 process_mode = 1
@@ -357,7 +341,7 @@ one_shot = true
 autostart = false
 _sections_unfolded = [ "Pause" ]
 
-[node name="Levels" type="Node2D" parent="." index="11"]
+[node name="Levels" type="Node2D" parent="." index="9"]
 
 editor/display_folded = true
 _sections_unfolded = [ "Transform" ]

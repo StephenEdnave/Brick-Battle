@@ -63,7 +63,7 @@ step = 0.1
 [sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
-extents = Vector2( 15.5576, 2.69609 )
+extents = Vector2( 25.4097, 3.20056 )
 
 [node name="Player" type="KinematicBody2D" groups=[
 "Player",
@@ -77,8 +77,8 @@ collision_mask = 20
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Pause", "Transform", "Visibility", "collision" ]
-MAX_WALK_SPEED = 600
-MAX_RUN_SPEED = 300
+MAX_WALK_SPEED = 500
+MAX_RUN_SPEED = 500
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
 
@@ -113,7 +113,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Body" type="Sprite" parent="Pivot" index="0"]
 
-scale = Vector2( 0.25, 0.166667 )
+scale = Vector2( 0.4052, 0.187561 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 

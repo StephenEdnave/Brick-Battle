@@ -14,370 +14,242 @@
 [ext_resource path="res://levels/4_players/levels/Level7.tscn" type="PackedScene" id=12]
 [ext_resource path="res://levels/4_players/levels/Level8.tscn" type="PackedScene" id=13]
 
-
-
 [sub_resource type="RectangleShape2D" id=1]
-
-custom_solver_bias = 0.0
 extents = Vector2( 280.976, 512 )
 
 [sub_resource type="RectangleShape2D" id=2]
-
-custom_solver_bias = 0.0
 extents = Vector2( 512, 32 )
 
 [node name="World" type="Node2D"]
-
 script = ExtResource( 1 )
-_sections_unfolded = [ "Pause", "Transform", "Z Index" ]
 
-[node name="Background" parent="." index="0" instance=ExtResource( 2 )]
+[node name="Background" parent="." instance=ExtResource( 2 )]
 
-_sections_unfolded = [ "Transform", "Visibility" ]
-
-[node name="Goals" type="Node2D" parent="." index="1"]
-
+[node name="Goals" type="Node2D" parent="."]
 editor/display_folded = true
 
-[node name="Goal1" parent="Goals" index="0" instance=ExtResource( 3 )]
-
+[node name="Goal1" parent="Goals" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 0, 582 )
 scale = Vector2( 2, 1.1875 )
 
-[node name="Goal2" parent="Goals" index="1" instance=ExtResource( 3 )]
-
+[node name="Goal2" parent="Goals" instance=ExtResource( 3 )]
 visible = false
 position = Vector2( 0, -574.422 )
 scale = Vector2( 2, 1.04151 )
 player = 1
 
-[node name="Goal3" parent="Goals" index="2" instance=ExtResource( 3 )]
-
+[node name="Goal3" parent="Goals" instance=ExtResource( 3 )]
 editor/display_folded = true
 visible = false
 position = Vector2( -574.097, 9.87533 )
 rotation = 1.5708
 scale = Vector2( 2, 1.07212 )
-_sections_unfolded = [ "Collision", "Transform" ]
 player = 2
 
-[node name="Goal4" parent="Goals" index="3" instance=ExtResource( 3 )]
-
+[node name="Goal4" parent="Goals" instance=ExtResource( 3 )]
 editor/display_folded = true
 visible = false
 position = Vector2( 567.332, 0.371303 )
 rotation = 1.5708
 scale = Vector2( 1.67596, 0.932481 )
-_sections_unfolded = [ "Collision", "Transform" ]
 player = 3
 
-[node name="Bounds" type="StaticBody2D" parent="." index="2"]
-
-editor/display_folded = true
-input_pickable = false
+[node name="Bounds" type="StaticBody2D" parent="."]
 collision_layer = 16
 collision_mask = 3
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-_sections_unfolded = [ "Collision", "Transform" ]
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bounds" index="0"]
-
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bounds"]
 position = Vector2( -665.977, 0.926582 )
 shape = SubResource( 1 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Bounds" index="1"]
-
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Bounds"]
 position = Vector2( 668.56, 1.58667 )
 shape = SubResource( 1 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Bounds" index="2"]
-
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Bounds"]
 position = Vector2( 3.1579, -418.947 )
 shape = SubResource( 2 )
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Bounds" index="3"]
-
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Bounds"]
 position = Vector2( 0, 640 )
 shape = SubResource( 2 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bounds" index="4"]
-
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bounds"]
 position = Vector2( -512, -352 )
-build_mode = 0
 polygon = PoolVector2Array( 0, 160, 0, -160, 320, -160, 320, -32, 128, 160 )
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Bounds" index="5"]
-
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Bounds"]
 position = Vector2( 352, -513.744 )
 rotation = 1.5708
-build_mode = 0
 polygon = PoolVector2Array( 1.74463, 160, 0, -160, 321.743, -160.001, 321.744, -32.0012, 129.745, 160 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Bounds" index="6"]
-
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Bounds"]
 position = Vector2( 510.923, 352.709 )
 rotation = 3.14159
-build_mode = 0
 polygon = PoolVector2Array( -1.07739, 160.709, 0, -160, 318.923, -159.29, 318.923, -31.2902, 126.923, 160.709 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Bounds" index="7"]
-
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Bounds"]
 position = Vector2( -354.15, 512 )
 rotation = 4.71239
-build_mode = 0
 polygon = PoolVector2Array( 0.000183105, 162.15, 0, -160, 320, -157.85, 320, -29.8503, 128, 162.15 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Graphics" type="Node2D" parent="Bounds" index="8"]
+[node name="Graphics" type="Node2D" parent="Bounds"]
+modulate = Color( 0, 0, 0, 1 )
 
-[node name="Sprite" type="Sprite" parent="Bounds/Graphics" index="0"]
-
+[node name="Sprite" type="Sprite" parent="Bounds/Graphics"]
 position = Vector2( 0, -536 )
-scale = Vector2( 8, 10.5 )
+scale = Vector2( 21.0938, 10.5 )
 texture = ExtResource( 4 )
 
-[node name="Sprite2" type="Sprite" parent="Bounds/Graphics" index="1"]
-
-position = Vector2( 0, 656 )
-scale = Vector2( 8, 3 )
+[node name="Sprite2" type="Sprite" parent="Bounds/Graphics"]
+position = Vector2( 0, 769 )
+scale = Vector2( 20.625, 10.0625 )
 texture = ExtResource( 4 )
 
-[node name="Sprite3" type="Sprite" parent="Bounds/Graphics" index="2"]
-
-position = Vector2( -544, 0 )
-scale = Vector2( 2.5, 32 )
+[node name="Sprite3" type="Sprite" parent="Bounds/Graphics"]
+position = Vector2( -907, 0 )
+scale = Vector2( 8.17188, 43.75 )
 texture = ExtResource( 4 )
 
-[node name="Sprite4" type="Sprite" parent="Bounds/Graphics" index="3"]
-
-position = Vector2( 544, 0 )
-scale = Vector2( 2.5, 32 )
+[node name="Sprite4" type="Sprite" parent="Bounds/Graphics"]
+position = Vector2( 872, 0 )
+scale = Vector2( 7.625, 44.375 )
 texture = ExtResource( 4 )
 
-[node name="Sprite5" type="Sprite" parent="Bounds/Graphics" index="4"]
-
+[node name="Sprite5" type="Sprite" parent="Bounds/Graphics"]
 position = Vector2( -288, -448 )
 scale = Vector2( 1.5, 4 )
 texture = ExtResource( 4 )
 
-[node name="Sprite6" type="Sprite" parent="Bounds/Graphics" index="5"]
-
+[node name="Sprite6" type="Sprite" parent="Bounds/Graphics"]
 position = Vector2( 288, -448 )
 scale = Vector2( 1.5, 4 )
 texture = ExtResource( 4 )
 
-[node name="Sprite13" type="Sprite" parent="Bounds/Graphics" index="6"]
-
+[node name="Sprite13" type="Sprite" parent="Bounds/Graphics"]
 position = Vector2( -448.12, -447.679 )
 rotation = 0.785398
 scale = Vector2( 3.52885, 8.54734 )
 texture = ExtResource( 4 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite14" type="Sprite" parent="Bounds/Graphics" index="7"]
-
+[node name="Sprite14" type="Sprite" parent="Bounds/Graphics"]
 position = Vector2( 448.157, 448.571 )
 rotation = 0.785398
 scale = Vector2( 3.54029, 8.54852 )
 texture = ExtResource( 4 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite15" type="Sprite" parent="Bounds/Graphics" index="8"]
-
+[node name="Sprite15" type="Sprite" parent="Bounds/Graphics"]
 position = Vector2( -448.404, 447.706 )
 rotation = -0.785398
 scale = Vector2( 3.56581, 8.46004 )
 texture = ExtResource( 4 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite16" type="Sprite" parent="Bounds/Graphics" index="9"]
-
+[node name="Sprite16" type="Sprite" parent="Bounds/Graphics"]
 position = Vector2( 449, -446.856 )
 rotation = -0.785398
 scale = Vector2( 3.56724, 8.38982 )
 texture = ExtResource( 4 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite7" type="Sprite" parent="Bounds/Graphics" index="10"]
-
+[node name="Sprite7" type="Sprite" parent="Bounds/Graphics"]
 position = Vector2( 256, 448 )
 scale = Vector2( 1, 4 )
 texture = ExtResource( 4 )
 
-[node name="Sprite8" type="Sprite" parent="Bounds/Graphics" index="11"]
-
+[node name="Sprite8" type="Sprite" parent="Bounds/Graphics"]
 position = Vector2( -256, 448 )
 scale = Vector2( 1, 4 )
 texture = ExtResource( 4 )
 
-[node name="Sprite9" type="Sprite" parent="Bounds/Graphics" index="12"]
-
+[node name="Sprite9" type="Sprite" parent="Bounds/Graphics"]
 position = Vector2( -448, -256 )
 scale = Vector2( 1, 4 )
 texture = ExtResource( 4 )
 
-[node name="Sprite10" type="Sprite" parent="Bounds/Graphics" index="13"]
-
+[node name="Sprite10" type="Sprite" parent="Bounds/Graphics"]
 position = Vector2( -448, 288 )
 scale = Vector2( 1, 6 )
 texture = ExtResource( 4 )
 
-[node name="Sprite11" type="Sprite" parent="Bounds/Graphics" index="14"]
-
+[node name="Sprite11" type="Sprite" parent="Bounds/Graphics"]
 position = Vector2( 448, 256 )
 scale = Vector2( 1, 4 )
 texture = ExtResource( 4 )
 
-[node name="Sprite12" type="Sprite" parent="Bounds/Graphics" index="15"]
-
+[node name="Sprite12" type="Sprite" parent="Bounds/Graphics"]
 position = Vector2( 448, -256 )
 scale = Vector2( 1, 4 )
 texture = ExtResource( 4 )
 
-[node name="Camera" type="Camera2D" parent="." index="3"]
-
-anchor_mode = 1
-rotating = false
+[node name="Camera" type="Camera2D" parent="."]
 current = true
-zoom = Vector2( 1, 1 )
-limit_left = -10000000
-limit_top = -10000000
-limit_right = 10000000
-limit_bottom = 10000000
-limit_smoothed = false
-drag_margin_h_enabled = true
-drag_margin_v_enabled = true
-smoothing_enabled = false
-smoothing_speed = 5.0
-offset_v = 0.0
-offset_h = 0.0
-drag_margin_left = 0.2
-drag_margin_top = 0.2
-drag_margin_right = 0.2
-drag_margin_bottom = 0.2
-editor_draw_screen = true
-editor_draw_limits = false
-editor_draw_drag_margin = false
 script = ExtResource( 5 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="StartPositions" type="Node2D" parent="." index="4"]
-
+[node name="StartPositions" type="Node2D" parent="."]
 editor/display_folded = true
-_sections_unfolded = [ "Transform" ]
 
-[node name="Position1" type="Position2D" parent="StartPositions" index="0"]
-
+[node name="Position1" type="Position2D" parent="StartPositions"]
 position = Vector2( 0, 384 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Position2" type="Position2D" parent="StartPositions" index="1"]
-
+[node name="Position2" type="Position2D" parent="StartPositions"]
 position = Vector2( 0.000973701, -384 )
 rotation = 3.14159
-_sections_unfolded = [ "Transform" ]
 
-[node name="Position3" type="Position2D" parent="StartPositions" index="2"]
-
+[node name="Position3" type="Position2D" parent="StartPositions"]
 position = Vector2( -384.014, 0 )
 rotation = 1.5708
-_sections_unfolded = [ "Transform" ]
 
-[node name="Position4" type="Position2D" parent="StartPositions" index="3"]
-
+[node name="Position4" type="Position2D" parent="StartPositions"]
 position = Vector2( 384, 0 )
 rotation = 4.71239
-_sections_unfolded = [ "Transform" ]
 
-[node name="BallSpawnPositions" type="Node2D" parent="." index="5"]
+[node name="BallSpawnPositions" type="Node2D" parent="."]
 
-[node name="Position1" type="Position2D" parent="BallSpawnPositions" index="0"]
+[node name="Position1" type="Position2D" parent="BallSpawnPositions"]
+position = Vector2( 0, 350 )
 
-position = Vector2( -160, 320 )
-_sections_unfolded = [ "Transform" ]
+[node name="Position2" type="Position2D" parent="BallSpawnPositions"]
+position = Vector2( 0, -350 )
 
-[node name="Position2" type="Position2D" parent="BallSpawnPositions" index="1"]
+[node name="Position3" type="Position2D" parent="BallSpawnPositions"]
+position = Vector2( -350, 0 )
 
-position = Vector2( 160, -320 )
-_sections_unfolded = [ "Transform" ]
+[node name="Position4" type="Position2D" parent="BallSpawnPositions"]
+position = Vector2( 350, 0 )
 
-[node name="Position3" type="Position2D" parent="BallSpawnPositions" index="2"]
+[node name="Interface" parent="." instance=ExtResource( 6 )]
 
-position = Vector2( -320, -160 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Position4" type="Position2D" parent="BallSpawnPositions" index="3"]
-
-position = Vector2( 320, 160 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Interface" parent="." index="6" instance=ExtResource( 6 )]
-
-[node name="StartCountdownTimer" type="Timer" parent="." index="7"]
-
-process_mode = 1
-wait_time = 0.5
-one_shot = false
-autostart = false
-
-[node name="GameOverTimer" type="Timer" parent="." index="8"]
-
-pause_mode = 2
-process_mode = 1
-wait_time = 0.1
+[node name="BallRespawnTimer" type="Timer" parent="."]
 one_shot = true
-autostart = false
-_sections_unfolded = [ "Pause" ]
 
-[node name="BallRespawnTimer" type="Timer" parent="." index="9"]
-
-process_mode = 1
-wait_time = 1.0
-one_shot = true
-autostart = false
-_sections_unfolded = [ "Pause" ]
-
-[node name="NextLevelTimer" type="Timer" parent="." index="10"]
-
+[node name="NextLevelTimer" type="Timer" parent="."]
 pause_mode = 2
-process_mode = 1
 wait_time = 2.0
 one_shot = true
-autostart = false
-_sections_unfolded = [ "Pause" ]
 
-[node name="Levels" type="Node2D" parent="." index="11"]
+[node name="Levels" type="Node2D" parent="."]
 
-_sections_unfolded = [ "Transform" ]
+[node name="Level" parent="Levels" instance=ExtResource( 7 )]
 
-[node name="Level" parent="Levels" index="0" instance=ExtResource( 7 )]
+[node name="Level2" parent="Levels" instance=ExtResource( 8 )]
 
-[node name="Level2" parent="Levels" index="1" instance=ExtResource( 8 )]
+[node name="Level3" parent="Levels" instance=ExtResource( 9 )]
 
-[node name="Level3" parent="Levels" index="2" instance=ExtResource( 9 )]
+[node name="Level4" parent="Levels" instance=ExtResource( 10 )]
 
-[node name="Level4" parent="Levels" index="3" instance=ExtResource( 10 )]
+[node name="Level5" parent="Levels" instance=ExtResource( 10 )]
 
-[node name="Level5" parent="Levels" index="4" instance=ExtResource( 10 )]
+[node name="Level6" parent="Levels" instance=ExtResource( 11 )]
 
-[node name="Level6" parent="Levels" index="5" instance=ExtResource( 11 )]
+[node name="Level7" parent="Levels" instance=ExtResource( 12 )]
 
-[node name="Level7" parent="Levels" index="6" instance=ExtResource( 12 )]
-
-[node name="Level8" parent="Levels" index="7" instance=ExtResource( 13 )]
+[node name="Level8" parent="Levels" instance=ExtResource( 13 )]
 
 
 [editable path="Goals/Goal3"]
+
 [editable path="Goals/Goal4"]
